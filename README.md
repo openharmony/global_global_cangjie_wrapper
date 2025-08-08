@@ -1,0 +1,3 @@
+# global_global_cangjie_wrapper
+
+全局化子系统仓颉封装层
