@@ -21,15 +21,15 @@ ohos_cj_library("ohos.i18n") {
   ]
 
   cj_external_deps = [
-    "arkui_cangjie_api:ohos.base",
-    "cangjie_api:ohos.ffi",
-    "cangjie_api:ohos.labels",
-    "hiviewdfx_cangjie_api:ohos.hilog",
+    "arkui_cangjie_wrapper:ohos.base",
+    "cangjie_ark_interop:ohos.ffi",
+    "cangjie_ark_interop:ohos.labels",
+    "hiviewdfx_cangjie_wrapper:ohos.hilog",
   ]
 
   external_deps = [ "i18n:cj_i18n_ffi" ]
 
   subsystem_name = "global"
-  part_name = "global_cangjie_api"
+  part_name = "global_cangjie_wrapper"
   lib_name = "i18n"
 }
