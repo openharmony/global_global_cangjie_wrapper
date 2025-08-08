@@ -25,7 +25,7 @@ If OpenHarmony systems or applications need to be used globally, they must meet 
 The source code of the Globalization subsystem is stored in the **/base/global** directory.
 
 ```
-base/global/global_cangjie_api
+base/global/global_cangjie_wrapper
 ├── ohos             # Cangjie Globalization Subsystem code
 ├── kit              # Cangjie kit code
 ├── figures          # architecture pictures
@@ -35,6 +35,6 @@ base/global/global_cangjie_api
 
 **Globalization subsystem**
 
-global_cangjie_api
+global_cangjie_wrapper
 
 [global\_i18n](https://gitee.com/openharmony/global_i18n)

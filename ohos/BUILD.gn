@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-group("global_cangjie_api_package") {
+group("global_cangjie_wrapper_package") {
   deps = [
     "i18n:ohos.i18n",
     "resource_manager:ohos.resource_manager",

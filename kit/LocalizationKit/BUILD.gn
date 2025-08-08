@@ -24,6 +24,6 @@ ohos_cj_library("kit.LocalizationKit") {
 
   kit = true
   subsystem_name = "global"
-  part_name = "global_cangjie_api"
+  part_name = "global_cangjie_wrapper"
   lib_name = "LocalizationKit"
 }

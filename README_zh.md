@@ -25,7 +25,7 @@
 全球化子系统源代码在/base/global目录下。
 
 ```
-base/global/global_cangjie_api
+base/global/global_cangjie_wrapper
 ├── ohos             # 仓颉全球化接口实现
 ├── kit              # 仓颉kit化代码
 ├── figures          # 存放readme中的架构图
@@ -35,6 +35,6 @@ base/global/global_cangjie_api
 
 **全球化子系统**
 
-global_cangjie_api
+global_cangjie_wrapper
 
 [global\_i18n](https://gitee.com/openharmony/global_i18n)
