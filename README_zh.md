@@ -1,8 +1,8 @@
-# 全球化子系统<a name="ZH-CN_TOPIC_0000001115837954"></a>
+# 全球化仓颉<a name="ZH-CN_TOPIC_0000001115837954"></a>
 
 ## 简介<a name="section11660541593"></a>
 
-当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化子系统提供支持多语言、多文化的能力，包括：
+当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
 
 -   **资源管理能力**
 
@@ -15,14 +15,14 @@
 
 ## 系统架构<a name="section1558604311012"></a>
 
-**图 1**  全球化子系统架构图<a name="fig87184592416"></a>  
+**图 1**  全球化仓颉架构图<a name="fig87184592416"></a>  
 
 
-![](figures/全球化子系统架构图.png "全球化子系统架构图")
+![](figures/global_cangjie_wrapper_architecture.png "全球化仓颉架构图")
 
 ## 目录<a name="section161941989596"></a>
 
-全球化子系统源代码在/base/global目录下。
+全球化仓颉源代码在/base/global目录下。
 
 ```
 base/global/global_cangjie_wrapper
@@ -33,7 +33,7 @@ base/global/global_cangjie_wrapper
 
 ## 相关仓<a name="section1371113476307"></a>
 
-**全球化子系统**
+**全球化仓颉**
 
 global_cangjie_wrapper
 
