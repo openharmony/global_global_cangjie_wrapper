@@ -35,6 +35,4 @@ base/global/global_cangjie_wrapper
 
 **全球化仓颉**
 
-global_cangjie_wrapper
-
 [global\_i18n](https://gitee.com/openharmony/global_i18n/blob/master/README.md)
