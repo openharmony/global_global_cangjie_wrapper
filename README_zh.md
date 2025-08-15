@@ -1,8 +1,8 @@
-# 全球化仓颉<a name="ZH-CN_TOPIC_0000001115837954"></a>
+# 全球化仓颉接口<a name="ZH-CN_TOPIC_0000001115837954"></a>
 
 ## 简介<a name="section11660541593"></a>
 
-当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
+全球化仓颉接口是在 OpenHarmony 上基于全球化子系统能力之上封装的仓颉API。当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
 
 -   **资源管理能力**
 
@@ -37,4 +37,4 @@ base/global/global_cangjie_wrapper
 
 global_cangjie_wrapper
 
-[global\_i18n](https://gitee.com/openharmony/global_i18n)
+[global\_i18n](https://gitee.com/openharmony/global_i18n/blob/master/README.md)
