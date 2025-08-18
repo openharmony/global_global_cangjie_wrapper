@@ -1,8 +1,8 @@
-# Globalization Subsystem<a name="ZH-CN_TOPIC_0000001115837954"></a>
+# global_cangjie_wrapper<a name="ZH-CN_TOPIC_0000001115837954"></a>
 
 ## Introduction<a name="section11660541593"></a>
 
-If OpenHarmony systems or applications need to be used globally, they must meet the requirements of users in different regions on languages and cultures. The Globalization subsystem provides the multi-language and multi-cultural capabilities for global use, including:
+The global_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the capabilities of the global Subsystem. If OpenHarmony systems or applications need to be used globally, they must meet the requirements of users in different regions on languages and cultures. The Globalization subsystem provides the multi-language and multi-cultural capabilities for global use, including:
 
 -   **Resource management**
 
@@ -18,11 +18,11 @@ If OpenHarmony systems or applications need to be used globally, they must meet 
 **Figure 1** Architecture of the globalization subsystem<a name="fig87184592416"></a> 
 
 
-![](figures/en_architecture-of-the-globalization-subsystem.png "architecture-of-the-globalization-subsystem")
+![](figures/global_cangjie_wrapper_architecture_en.png "architecture-of-the-global_cangjie_wrapper")
 
 ## Directory Structure<a name="section161941989596"></a>
 
-The source code of the Globalization subsystem is stored in the **/base/global** directory.
+The source code of the global_cangjie_wrapper is stored in the **/base/global** directory.
 
 ```
 base/global/global_cangjie_wrapper
@@ -32,9 +32,5 @@ base/global/global_cangjie_wrapper
 ```
 
 ## Repositories Involved<a name="section1371113476307"></a>
-
-**Globalization subsystem**
-
-global_cangjie_wrapper
 
 [global\_i18n](https://gitee.com/openharmony/global_i18n)
