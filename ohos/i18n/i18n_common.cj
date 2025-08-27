@@ -15,24 +15,160 @@
 
 package ohos.i18n
 
-import std.deriving.Derive
 import std.time.DateTime
-import ohos.base.*
-import ohos.ffi.*
-import ohos.labels.*
+import ohos.business_exception.getUniversalErrorMsg
 import std.collection.HashMap
+import ohos.labels.APILevel
 
-protected const INVALID_PARAMETER = 890001i32
+const INVALID_PARAMETER = 890001i32
 let ERROR_CODE_MAP = HashMap<Int32, String>(
     [(INVALID_PARAMETER, "Invalid parameter. Possible causes: Parameter verification failed.")])
 
-protected func getErrorMsg(code: Int32): String {
+func getErrorMsg(code: Int32): String {
     if (let Some(v) <- getUniversalErrorMsg(code)) {
         return v
     } else if (ERROR_CODE_MAP.contains(code)) {
         return ERROR_CODE_MAP[code]
     } else {
         return "Unknown error code ${code}"
+    }
+}
+
+/**
+ * Calendar type.
+ */
+@!APILevel[
+    21,
+    stagemodelonly: true,
+    syscap: "SystemCapability.Global.I18n"
+]
+public enum CalendarType {
+    /**
+     * buddhist calendar type
+     */
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Buddhist
+    /**
+     * chinese calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Chinese
+    /**
+     * coptic calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Coptic
+    /**
+     * ethiopic calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Ethiopic
+    /**
+     * hebrew calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Hebrew
+    /**
+     * gregory calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Gregory
+    /**
+     * indian calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Indian
+    /**
+     * islamic_civil calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    IslamicCivil
+    /**
+     * islamic_tbla calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    IslamicTbla
+    /**
+     * islamic_umalqura calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    IslamicUmalqura
+    /**
+     * japanese calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Japanese
+    /**
+     * persian calendar type
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    Persian
+    | ...
+
+    func toString(): String {
+        match (this) {
+            case Buddhist => "buddhist"
+            case Chinese => "chinese"
+            case Coptic => "coptic"
+            case Ethiopic => "ethiopic"
+            case Hebrew => "hebrew"
+            case Gregory => "gregory"
+            case Indian => "indian"
+            case IslamicCivil => "islamic_civil"
+            case IslamicTbla => "islamic_tbla"
+            case IslamicUmalqura => "islamic_umalqura"
+            case Japanese => "japanese"
+            case Persian => "persian"
+            case _ => throw IllegalArgumentException("The type is not supported.")
+        }
     }
 }
 

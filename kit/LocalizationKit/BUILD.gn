@@ -14,7 +14,7 @@
 import("//build/ohos.gni")
 import("//build/cangjie/cjc.gni")
 
-ohos_cj_library("kit.LocalizationKit") {
+ohos_cangjie_shared_library("kit.LocalizationKit") {
   sources = [ "index.cj" ]
 
   cj_deps = [
@@ -22,8 +22,6 @@ ohos_cj_library("kit.LocalizationKit") {
     "../../ohos/resource_manager:ohos.resource_manager",
   ]
 
-  kit = true
   subsystem_name = "global"
   part_name = "global_cangjie_wrapper"
-  lib_name = "LocalizationKit"
 }
