@@ -71,6 +71,9 @@
                 "name": "//base/global/global_cangjie_wrapper/ohos/resource_manager:ohos.resource_manager"
               },
               {
+                "name": "//base/global/global_cangjie_wrapper/ohos/resource:ohos.resource"
+              },
+              {
                 "name": "//base/global/global_cangjie_wrapper/ohos/i18n:ohos.i18n"
               }
             ],
