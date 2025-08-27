@@ -56,9 +56,9 @@
             "hiviewdfx_cangjie_wrapper",
             "bundlemanager_cangjie_wrapper",
             "arkui_cangjie_wrapper",
-
             "resource_management",
-            "ace_engine"
+            "ace_engine",
+            "i18n"
           ]
       },
         "build": {
