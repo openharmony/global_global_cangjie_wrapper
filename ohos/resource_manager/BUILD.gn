@@ -13,15 +13,21 @@
 
 import("//build/cangjie/cjc.gni")
 
-ohos_cj_library("ohos.resource_manager") {
+ohos_cangjie_shared_library("ohos.resource_manager") {
   sources = [
     "resource_manager.cj",
     "resource_manager_common.cj",
+    "resource_manager_errors.cj",
     "resource_manager_ffi.cj",
   ]
 
+  cj_deps = [
+    "../raw_file_descriptor:ohos.raw_file_descriptor",
+    "../resource:ohos.resource",
+  ]
+
   cj_external_deps = [
-    "arkui_cangjie_wrapper:ohos.base",
+    "cangjie_ark_interop:ohos.business_exception",
     "cangjie_ark_interop:ohos.ffi",
     "cangjie_ark_interop:ohos.labels",
     "hiviewdfx_cangjie_wrapper:ohos.hilog",
@@ -31,5 +37,4 @@ ohos_cj_library("ohos.resource_manager") {
 
   subsystem_name = "global"
   part_name = "global_cangjie_wrapper"
-  lib_name = "resource_manager"
 }
