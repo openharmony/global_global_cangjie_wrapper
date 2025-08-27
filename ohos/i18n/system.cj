@@ -15,27 +15,32 @@
 
 package ohos.i18n
 
-import ohos.base.*
-import ohos.ffi.*
-import ohos.labels.*
+import ohos.labels.APILevel
 
 foreign {
     func FfiI18nSystemGetAppPreferredLanguage(): CString
 }
 
+/**
+ * Provides system functions.
+ *
+ * @relation export class System
+ */
 @!APILevel[
     21,
-    atomicservice: true,
-    crossplatform: true,
-    form: true,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.I18n"
 ]
 public class System {
+    init() {}
+
+    /**
+     * Obtains the preferred language of an application.
+     *
+     * @relation static getAppPreferredLanguage(): string
+     */
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.I18n"
     ]

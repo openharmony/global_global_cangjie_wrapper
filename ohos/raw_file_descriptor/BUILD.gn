@@ -11,11 +11,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-group("global_cangjie_wrapper_package") {
-  deps = [
-    "i18n:ohos.i18n",
-    "raw_file_descriptor:ohos.raw_file_descriptor",
-    "resource:ohos.resource",
-    "resource_manager:ohos.resource_manager",
+import("//build/cangjie/cjc.gni")
+
+ohos_cangjie_shared_library("ohos.raw_file_descriptor") {
+  sources = [ "raw_file_descriptor.cj" ]
+
+  cj_external_deps = [
+    "arkui_cangjie_wrapper:ohos.base",
+    "cangjie_ark_interop:ohos.ffi",
+    "cangjie_ark_interop:ohos.labels",
   ]
+
+  subsystem_name = "global"
+  part_name = "global_cangjie_wrapper"
 }
