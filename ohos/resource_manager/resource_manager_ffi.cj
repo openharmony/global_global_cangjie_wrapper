@@ -15,8 +15,9 @@
 
 package ohos.resource_manager
 
-import ohos.ffi.*
-import ohos.base.*
+import ohos.ffi.{RetDataI64, RetDataCArrUI8, RetDataCArrString, RetDataCString}
+import ohos.raw_file_descriptor.RetDataRawFileDescriptor
+import ohos.resource.CResource
 
 foreign {
     func CJ_GetResourceManagerStageMode(context: StageContext): Int64
@@ -116,6 +117,10 @@ struct RetDeviceCapability {
         let screenDensity: Int32,
         let deviceType: Int32
     ) {}
+
+    func toDeviceCapability(): DeviceCapability {
+        DeviceCapability(ScreenDensity.parse(screenDensity), DeviceType.parse(deviceType))
+    }
 }
 
 @C
@@ -156,15 +161,6 @@ struct RetConfigurationEx {
 }
 
 @C
-struct RetDataRawFileDescriptor {
-    RetDataRawFileDescriptor(
-        let fd: Int32,
-        let offset: Int64,
-        let length: Int64
-    ) {}
-}
-
-@C
 struct RetGetNumber {
     RetGetNumber(
         let isInt: Bool,
@@ -172,38 +168,11 @@ struct RetGetNumber {
         let floatValue: Float32
     ) {}
 
-    func toNumber(): Number {
+    func toNumber(): NumberValueType {
         if (isInt) {
-            Number.INT(intValue)
+            NumberValueType.Int32Value(intValue)
         } else {
-            Number.FLOAT(floatValue)
-        }
-    }
-}
-
-@C
-protected struct CResource {
-    protected let bundleName: CString
-    protected let moduleName: CString
-    protected let resId: Int32
-
-    protected init(resource: AppResource) {
-        unsafe {
-            this.bundleName = LibC.mallocCString(resource.bundleName)
-            try {
-                this.moduleName = LibC.mallocCString(resource.moduleName)
-            } catch (e: Exception) {
-                LibC.free(this.bundleName)
-                throw e
-            }
-        }
-        this.resId = resource.id
-    }
-
-    protected func free(): Unit {
-        unsafe {
-            LibC.free(this.bundleName)
-            LibC.free(this.moduleName)
+            NumberValueType.Float32Value(floatValue)
         }
     }
 }

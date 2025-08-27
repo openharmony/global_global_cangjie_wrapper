@@ -15,60 +15,18 @@
 
 package ohos.resource_manager
 
-import ohos.ffi.*
-import std.collection.*
-import ohos.base.*
-import ohos.labels.*
+import ohos.labels.APILevel
 import std.deriving.Derive
+import ohos.hilog.HilogChannel
+import ohos.business_exception.BusinessException
 
-@!APILevel[
-    21,
-    atomicservice: true,
-    crossplatform: true,
-    stagemodelonly: true,
-    syscap: "SystemCapability.Global.ResourceManager"
-]
-public class RawFileDescriptor {
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public RawFileDescriptor(
-        @!APILevel[
-            21,
-            atomicservice: true,
-            crossplatform: true,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let fd: Int32,
-        @!APILevel[
-            21,
-            atomicservice: true,
-            crossplatform: true,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let offset: Int64,
-        @!APILevel[
-            21,
-            atomicservice: true,
-            crossplatform: true,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let length: Int64
-    ) {}
-
-    init(raw: RetDataRawFileDescriptor) {
-        this.fd = raw.fd
-        this.offset = raw.offset
-        this.length = raw.length
-    }
-}
+type StageContext = CPointer<Unit>
+const ESCAPE_CHARACTER: Rune = r'%'
+const RAWFILE_TYPE: Int32 = 30000
+const HAR_TYPE = "har"
+const DEFAULT_HAR_BUNDLE_NAME = "__harDefaultBundleName__"
+const DEFAULT_HAR_MODULE_NAME = "__harDefaultModuleName__"
+let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
 
 /**
  * Provides the device configuration.
@@ -77,12 +35,10 @@ public class RawFileDescriptor {
  */
 @!APILevel[
     21,
-    atomicservice: true,
-    crossplatform: true,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.ResourceManager"
 ]
-public class Configuration <: ToString {
+public class Configuration {
     /**
      * Indicates the screen direction of the current device.
      *
@@ -90,8 +46,6 @@ public class Configuration <: ToString {
      */
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
@@ -103,60 +57,70 @@ public class Configuration <: ToString {
      */
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var locale: String
+
     /**
      * Indicates the device type.
      *
      * @relation deviceType: DeviceType
      */
-    var deviceType: DeviceType
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    public var deviceType: DeviceType
     /**
      * Indicates the screen density.
      *
      * @relation screenDensity: ScreenDensity
      */
-    var screenDensity: ScreenDensity
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    public var screenDensity: ScreenDensity
     /**
      * Indicates the color mode.
      *
      * @relation colorMode: ColorMode
      */
-    var colorMode: ColorMode
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    public var colorMode: ColorMode
     /**
      * Indicates the mcc.
      *
      * @relation mcc: number
      */
-    var mcc: UInt32
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    public var mcc: UInt32
     /**
      * Indicates the mnc.
      *
      * @relation mnc: number
      */
-    var mnc: UInt32
-
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public init(direction: Direction, locale: String) {
-        this.direction = direction
-        this.locale = locale
-        this.deviceType = DeviceType.DEVICE_TYPE_PHONE
-        this.screenDensity = ScreenDensity.SCREEN_SDPI
-        this.colorMode = ColorMode.Dark
-        this.mcc = 0
-        this.mnc = 0
-    }
+    public var mnc: UInt32
 
+    /**
+     * Configuration constructor.
+     */
     init(
         direction: Direction,
         locale: String,
@@ -174,387 +138,84 @@ public class Configuration <: ToString {
         this.mcc = mcc
         this.mnc = mnc
     }
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public func toString(): String {
-        let builder = StringBuilder("Configuration(")
-        builder.append("direction: ${direction.getValue()}, ")
-        builder.append("locale: ${locale}, ")
-        builder.append("deviceType: ${deviceType.getValue()}, ")
-        builder.append("screenDensity: ${screenDensity.getValue()}, ")
-        builder.append("colorMode: ${colorMode}, ")
-        builder.append("mcc: ${mcc}, ")
-        builder.append("mnc: ${mnc})")
-        builder.toString()
-    }
-
-    func toRetConfigurationEx(): RetConfigurationEx {
-        RetConfigurationEx(
-            direction.getValue(),
-            deviceType.getValue(),
-            screenDensity.getValue(),
-            colorMode.getValue(),
-            mcc,
-            mnc,
-            unsafe { LibC.mallocCString(locale) }
-        )
-    }
 }
 
 /**
  * Provides the device capability.
+ *
+ * @relation export class DeviceCapability
  */
 @!APILevel[
     21,
-    atomicservice: true,
-    crossplatform: true,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.ResourceManager"
 ]
-public class DeviceCapability <: ToString {
+public class DeviceCapability {
+    /**
+     * Indicates the screen density of the current device.
+     *
+     * @relation screenDensity: ScreenDensity
+     */
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public DeviceCapability(
-        // Indicates the screen density of the current device.
-        @!APILevel[
-            21,
-            atomicservice: true,
-            crossplatform: true,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let screenDensity: ScreenDensity,
-        // Indicates the type of the current device.
-        @!APILevel[
-            21,
-            atomicservice: true,
-            crossplatform: true,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let deviceType: DeviceType
-    ) {}
-
-    init(ret: RetDeviceCapability) {
-        this.screenDensity = ScreenDensity.parse(ret.screenDensity)
-        this.deviceType = DeviceType.parse(ret.deviceType)
-    }
-
+    public let screenDensity: ScreenDensity
+    /**
+     * Indicates the type of the current device.
+     *
+     * @relation deviceType: DeviceType
+     */
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public func toString(): String {
-        "screenDensity:${screenDensity.getValue()}, deviceType ${deviceType.getValue()}"
+    public let deviceType: DeviceType
+
+    /**
+     * DeviceCapability constructor.
+     */
+    init(screenDensity: ScreenDensity, deviceType: DeviceType) {
+        this.screenDensity = screenDensity
+        this.deviceType = deviceType
     }
 }
 
 /**
- * Enumerates screen density types.
+ * Enumerates color mode types.
+ *
+ * @relation export enum ColorMode
  */
 @!APILevel[
     21,
-    atomicservice: true,
-    crossplatform: true,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.ResourceManager"
 ]
-public enum ScreenDensity {
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    SCREEN_SDPI
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    SCREEN_MDPI
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    SCREEN_LDPI
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    SCREEN_XLDPI
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    SCREEN_XXLDPI
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    SCREEN_XXXLDPI
-    | ...
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public func getValue(): Int32 {
-        match (this) {
-            case SCREEN_SDPI => 120
-            case SCREEN_MDPI => 160
-            case SCREEN_LDPI => 240
-            case SCREEN_XLDPI => 320
-            case SCREEN_XXLDPI => 480
-            case SCREEN_XXXLDPI => 640
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public static func parse(val: Int32): ScreenDensity {
-        match (val) {
-            case 120 => SCREEN_SDPI
-            case 160 => SCREEN_MDPI
-            case 240 => SCREEN_LDPI
-            case 320 => SCREEN_XLDPI
-            case 480 => SCREEN_XXLDPI
-            case 640 => SCREEN_XXXLDPI
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
-}
-
-/**
- * Enumerates device types.
- */
-@!APILevel[
-    21,
-    atomicservice: true,
-    crossplatform: true,
-    stagemodelonly: true,
-    syscap: "SystemCapability.Global.ResourceManager"
-]
-public enum DeviceType {
-    //Indicates a phone.
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_PHONE
-    // Indicates a tablet.
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_TABLET
-    // Indicates a car.
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_CAR
-    // Indicates a PC.
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_PC
-    // Indicates a smart TV.
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_TV
-    // Indicates a wearable device.
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_WEARABLE
-    // Indicates a 2in1 device.
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DEVICE_TYPE_2IN1
-    | ...
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public func getValue(): Int32 {
-        match (this) {
-            case DEVICE_TYPE_PHONE => 0
-            case DEVICE_TYPE_TABLET => 1
-            case DEVICE_TYPE_CAR => 2
-            case DEVICE_TYPE_PC => 3
-            case DEVICE_TYPE_TV => 4
-            case DEVICE_TYPE_WEARABLE => 6
-            case DEVICE_TYPE_2IN1 => 7
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public static func parse(val: Int32): DeviceType {
-        match (val) {
-            case 0 => DEVICE_TYPE_PHONE
-            case 1 => DEVICE_TYPE_TABLET
-            case 2 => DEVICE_TYPE_CAR
-            case 3 => DEVICE_TYPE_PC
-            case 4 => DEVICE_TYPE_TV
-            case 6 => DEVICE_TYPE_WEARABLE
-            case 7 => DEVICE_TYPE_2IN1
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
-}
-
-/**
- * Enumerates screen directions.
- */
-@!APILevel[
-    21,
-    atomicservice: true,
-    crossplatform: true,
-    stagemodelonly: true,
-    syscap: "SystemCapability.Global.ResourceManager"
-]
-public enum Direction {
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DIRECTION_VERTICAL
-    | @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    DIRECTION_HORIZONTAL
-    | ...
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public func getValue(): Int32 {
-        match (this) {
-            case DIRECTION_VERTICAL => 0
-            case DIRECTION_HORIZONTAL => 1
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
-
-    @!APILevel[
-        21,
-        atomicservice: true,
-        crossplatform: true,
-        stagemodelonly: true,
-        syscap: "SystemCapability.Global.ResourceManager"
-    ]
-    public static func parse(val: Int32): Direction {
-        match (val) {
-            case 0 => DIRECTION_VERTICAL
-            case 1 => DIRECTION_HORIZONTAL
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
-}
-
-@Derive[Equatable, ToString]
-enum ColorMode {
+public enum ColorMode {
     /**
      * Indicates dark mode.
      *
      * @relation DARK = 0
      */
-    
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
     Dark
     /**
      * Indicates light mode.
      *
      * @relation LIGHT = 1
      */
-    | Light
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    Light
     | ...
 
     static func parse(val: Int32): ColorMode {
@@ -564,159 +225,269 @@ enum ColorMode {
             case _ => throw IllegalArgumentException("The type is not supported.")
         }
     }
-
-    func getValue(): Int32 {
-        match (this) {
-            case Dark => 0
-            case Light => 1
-            case _ => throw IllegalArgumentException("The type is not supported.")
-        }
-    }
 }
 
+/**
+ * Enumerates screen density types.
+ *
+ * export enum ScreenDensity
+ */
 @!APILevel[
     21,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.ResourceManager"
 ]
-public class AppResource <: Length & ResourceColor {
+public enum ScreenDensity {
+    /**
+     * Indicates small screen density.
+     *
+     * @relation SCREEN_SDPI = 120
+     */
     @!APILevel[
         21,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public AppResource(
-        @!APILevel[
-            21,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let bundleName: String,
-        @!APILevel[
-            21,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let moduleName: String,
-        @!APILevel[
-            21,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let id: Int32,
-        @!APILevel[
-            21,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let params!: ?Array<Any> = None,
-        @!APILevel[
-            21,
-            stagemodelonly: true,
-            syscap: "SystemCapability.Global.ResourceManager"
-        ]
-        public let resType!: ?Int32 = None
-    ) {}
-
-    protected init(ret: CResource) {
-        this.bundleName = ret.bundleName.toString()
-        this.moduleName = ret.moduleName.toString()
-        this.id = ret.resId
-        this.params = None
-        this.resType = None
-    }
-}
-
-const RAWFILE_TYPE: Int32 = 30000
-const HAR_TYPE = "har"
-const DEFAULT_HAR_BUNDLE_NAME = "__harDefaultBundleName__"
-const DEFAULT_HAR_MODULE_NAME = "__harDefaultModuleName__"
-
-@!APILevel[
-    21,
-    atomicservice: true,
-    stagemodelonly: true,
-    syscap: "SystemCapability.Global.ResourceManager"
-]
-public func __GenerateResource__(
-    bundleName: String,
-    moudleType: String,
-    moduleName: String,
-    resId: Int32,
-    resStr: String,
-    params: Array<Any>,
-    resType: Int32
-): AppResource {
-    if (moudleType == HAR_TYPE) {
-        let paramsArr: ArrayList<Any> = ArrayList<Any>([resStr])
-        paramsArr.add(all: params)
-        return AppResource(DEFAULT_HAR_BUNDLE_NAME, DEFAULT_HAR_MODULE_NAME, -1, params: paramsArr.toArray(),
-            resType: resType)
-    } else if (resType == RAWFILE_TYPE) {
-        return AppResource(bundleName, moduleName, resId, params: [resStr], resType: resType)
-    } else {
-        return AppResource(bundleName, moduleName, resId, params: params, resType: resType)
-    }
-}
-
-@!APILevel[
-    21,
-    atomicservice: true,
-    crossplatform: true,
-    stagemodelonly: true,
-    syscap: "SystemCapability.Global.ResourceManager"
-]
-public class DrawableDescriptor <: RemoteDataLite {
-    init(id: Int64) {
-        super(id)
-        RES_LOG.info("DrawableDescriptor construct success")
-    }
-
-    ~init() {
-        releaseFFIData(myDataId)
-    }
-}
-
-let ERROR_CODE_MAP = HashMap<Int32, String>(
-    [
-        (9001001, "AppResource id invalid."),
-        (9001002, "AppResource not found by id."),
-        (9001003, "AppResource name invalid."),
-        (9001004, "AppResource not found by name."),
-        (9001005, "Rawfile path is invalid."),
-        (9001006, "AppResource re-ref too much."),
-        (9001007, "AppResource obtained by resId formatting error."),
-        (9001008, "AppResource obtained by resName formatting error."),
-        (9001009, "Get system resource manager failed."),
-        (9001010, "Overlay resource path is invalid.")
+    ScreenSdpi
+    /**
+     * Indicates medium screen density.
+     *
+     * @relation SCREEN_MDPI = 160
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
     ]
-)
-const ERROR_CODE_RES_ID_FORMAT_ERROR: Int32 = 9001007
-const ESCAPE_CHARACTER: Rune = r'%'
-const ERROR_OUT_OF_MEMORY: Int32 = 10
+    ScreenMdpi
+    /**
+     * Indicates large screen density.
+     *
+     * @relation SCREEN_LDPI = 240
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    ScreenLdpi
+    /**
+     * Indicates extra-large screen density.
+     *
+     * @relation SCREEN_XLDPI = 320
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    ScreenXldpi
+    /**
+     * Indicates extra-extra-large screen density.
+     *
+     * @relation SCREEN_XXLDPI = 480
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    ScreenXxldpi
+    /**
+     * Indicates extra-extra-extra-large screen density.
+     *
+     * @relation SCREEN_XXXLDPI = 640
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    ScreenXxxldpi
+    | ...
 
-func throwIfNotSuccess(code: Int32, errorMsg: String): Unit {
-    if (code != SUCCESS_CODE) {
-        if (code == -1) {
-            throw IllegalStateException("invalid instance")
+    /**
+     * Gets the corresponding mapping value.
+     */
+    func getValue(): UInt32 {
+        match (this) {
+            case ScreenSdpi => 120
+            case ScreenMdpi => 160
+            case ScreenLdpi=> 240
+            case ScreenXldpi=> 320
+            case ScreenXxldpi => 480
+            case ScreenXxxldpi => 640
+            case _ => throw IllegalArgumentException("The type is not supported.")
         }
-        throw BusinessException(code, errorMsg)
+    }
+
+    /**
+     * Parses ScreenDensity from the corresponding mapping value.
+     */
+    static func parse(val: Int32): ScreenDensity {
+        match (val) {
+            case 120 => ScreenSdpi
+            case 160 => ScreenMdpi
+            case 240 => ScreenLdpi
+            case 320 => ScreenXldpi
+            case 480 => ScreenXxldpi
+            case 640 => ScreenXxxldpi
+            case _ => throw IllegalArgumentException("The type is not supported.")
+        }
     }
 }
 
-func throwIfNull(ptr: CString): Unit {
-    if (ptr.isNull()) {
-        throw IllegalMemoryException("Out of memory.")
+/**
+ * Enumerates device types.
+ *
+ * @relation export enum DeviceType
+ */
+@!APILevel[
+    21,
+    stagemodelonly: true,
+    syscap: "SystemCapability.Global.ResourceManager"
+]
+public enum DeviceType {
+    /**
+     * Indicates a phone.
+     *
+     * @relation DEVICE_TYPE_PHONE = 0x00
+     */
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceTypePhone
+    /**
+     * Indicates a tablet.
+     *
+     * @relation DEVICE_TYPE_TABLET = 0x01
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceTypeTablet
+    /**
+     * Indicates a car.
+     *
+     * @relation DEVICE_TYPE_CAR = 0x02
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceTypeCar
+    /**
+     * Indicates a PC.
+     *
+     * @relation DEVICE_TYPE_PC = 0x03
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceTypePc
+    /**
+     * Indicates a smart TV.
+     *
+     * @relation DEVICE_TYPE_TV = 0x04
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceTypeTv
+    /**
+     * Indicates a wearable device.
+     *
+     * @relation DEVICE_TYPE_WEARABLE = 0x06
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceTypeWearable
+    /**
+     * Indicates a 2in1 device.
+     *
+     * @relation DEVICE_TYPE_2IN1 = 0x07
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DeviceType2In1
+    | ...
+
+    /**
+     * Parses DeviceType from the corresponding mapping value.
+     */
+    static func parse(val: Int32): DeviceType {
+        match (val) {
+            case 0 => DeviceTypePhone
+            case 1 => DeviceTypeTablet
+            case 2 => DeviceTypeCar
+            case 3 => DeviceTypePc
+            case 4 => DeviceTypeTv
+            case 6 => DeviceTypeWearable
+            case 7 => DeviceType2In1
+            case _ => throw IllegalArgumentException("The type is not supported.")
+        }
     }
 }
 
-func getErrorMsg(code: Int32): String {
-    if (let Some(v) <- getUniversalErrorMsg(code)) {
-        return v
-    } else if (ERROR_CODE_MAP.contains(code)) {
-        return ERROR_CODE_MAP[code]
-    } else {
-        return "Unknown error code ${code}"
+/**
+ * Enumerates screen directions.
+ *
+ * @relation export enum Direction
+ */
+@!APILevel[
+    21,
+    stagemodelonly: true,
+    syscap: "SystemCapability.Global.ResourceManager"
+]
+public enum Direction {
+    /**
+     * Enumerates screen directions.
+     *
+     * @relation DIRECTION_VERTICAL = 0
+     */
+    @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DirectionVertical
+    /**
+     * Indicates the horizontal direction.
+     *
+     * @relation DIRECTION_HORIZONTAL = 1
+     */
+    | @!APILevel[
+        21,
+        stagemodelonly: true,
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
+    DirectionHorizontal
+    | ...
+
+    /**
+     * Parses Direction from the corresponding mapping value.
+     */
+    static func parse(val: Int32): Direction {
+        match (val) {
+            case 0 => DirectionVertical
+            case 1 => DirectionHorizontal
+            case _ => throw IllegalArgumentException("The type is not supported.")
+        }
     }
 }
 
@@ -725,62 +496,74 @@ func getErrorMsg(code: Int32): String {
  */
 @!APILevel[
     21,
-    atomicservice: true,
-    crossplatform: true,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.ResourceManager"
 ]
-public enum Number {
+public enum NumberValueType {
+    /**
+     * Represents Int32.
+     */
     @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    INT(Int32)
+    Int32Value(Int32)
+    /**
+     * Represents Float32.
+     */
     | @!APILevel[
         21,
-        atomicservice: true,
-        crossplatform: true,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    FLOAT(Float32)
+    Float32Value(Float32)
     | ...
 }
 
+/**
+ * For the formatting parameter using.
+ */
 @!APILevel[
     21,
     stagemodelonly: true,
     syscap: "SystemCapability.Global.ResourceManager"
 ]
-public enum FormatArgs {
+public enum ArgsValueType {
+    /**
+     * Formats %d.
+     */
     @!APILevel[
         21,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    INT(Int32)
+    Int32Value(Int32)
+    /**
+     * Formats %f.
+     */
     | @!APILevel[
         21,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    FLOAT(Float32)
+    Float32Value(Float32)
+    /**
+     * Formats %s.
+     */
     | @!APILevel[
         21,
         stagemodelonly: true,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    STRING(String)
+    StringValue(String)
     | ...
 
     func shouldFormat(r: Rune): Bool {
         let l: Rune = match (this) {
-            case INT(_) => r'd'
-            case FLOAT(_) => r'f'
-            case STRING(_) => r's'
+            case Int32Value(_) => r'd'
+            case Float32Value(_) => r'f'
+            case StringValue(_) => r's'
             case _ => throw IllegalArgumentException("The type is not supported.")
         }
         return l == r
@@ -788,15 +571,15 @@ public enum FormatArgs {
 
     func toString(): String {
         match (this) {
-            case INT(v) => v.toString()
-            case FLOAT(v) => v.toString()
-            case STRING(v) => v
+            case Int32Value(v) => v.toString()
+            case Float32Value(v) => v.toString()
+            case StringValue(v) => v
             case _ => throw IllegalArgumentException("The type is not supported.")
         }
     }
 }
 
-func formatString(str: String, args: Array<FormatArgs>) {
+func formatString(str: String, args: Array<ArgsValueType>) {
     if (str.size == 0 || args.size == 0) {
         return str
     }
