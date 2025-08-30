@@ -1,0 +1,12 @@
+{
+	"symbol": [
+	  {
+		"name": "symbol_1",
+		"value": "0xF0000"
+	  },
+	  {
+		"name": "symbol_2",
+		"value": "0xF0001"
+	  }
+	]
+  }
