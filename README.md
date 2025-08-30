@@ -12,6 +12,7 @@ The global_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on
 
     The subsystem provides the bottom-layer resource backtracking capabilities, with a wide array of i18n APIs for implementing functions such as calendar.
 
+The currently open Ability Cangjie api only supports standard devices.
 
 ## Architecture
 
@@ -20,30 +21,43 @@ The global_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on
 
 ![](figures/global_cangjie_wrapper_architecture_en.png "architecture-of-the-global_cangjie_wrapper")
 
+As shown in the architecture:
+
+- Calendar: Provides the capability to obtain and set calendar properties, such as time, time zone, etc.
+- ResourceManager: Provides the capability for application resource acquisition.
+- System: Provides the capability to obtain the application's preferred language.
+- Cangjie Global FFI interface: Based on cross-language interoperability via C interfaces to implement global Cangjie API.
+- i18n: Responsible for providing basic internationalization functions, and encapsulates C interfaces for Cangjie to conduct interoperation.
+- resource_management: Responsible for providing basic resource management functions, and encapsulates C interfaces for Cangjie to conduct interoperation.
+
 ## Directory Structure
 
 ```
 base/global/global_cangjie_wrapper
-├── ohos             # Cangjie Globalization Subsystem code
-├── kit              # Cangjie kit code
-├── figures          # architecture pictures
+├── figures                 # architecture pictures
+├── kit                     # Cangjie LocalizationKit kit code
+│   └── LocalizationKit
+└── ohos                    # Cangjie Global code
+    ├── BUILD.gn
+    ├── i18n
+    ├── raw_file_descriptor
+    ├── resource
+    └── resource_manager
 ```
-
-## Constraints
-
-The currently open Global Cangjie api only supports standard devices.
 
 ## Usage Guidelines
 
 The following features are provided:
 
-  - ResourceManager
-  - i18n Calendar
+- Calendar provides the capability to obtain and set calendar properties, such as time, time zone, etc.
+- ResourceManager provides the capability for application resource acquisition.
+- System provides the capability to obtain the application's preferred language.
 
 The following features are not provided yet:
 
- - Intl
- - i18n others.
+- Date formatting, number formatting, and sorting.
+- Functions such as region management, phone number processing, text processing, time zone and holiday management.
+- Cross-thread transmission of resource objects.
 
 For Global-related APIs, please refer to
 1. [ohos.i18n](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-i18n.md)
@@ -56,6 +70,14 @@ For relevant guidance, please refer to [Internationalization Development Guide](
 [global_i18n](https://gitee.com/openharmony/global_i18n)
 
 [global_resource_management](https://gitee.com/openharmony/global_resource_management)
+
+[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
+[hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
+
+[arkui_arkui_cangjie_wrapper](https://gitcode.com/openharmony-sig/arkui_arkui_cangjie_wrapper)
+
+[arkui_ace_engine](https://gitee.com/openharmony/arkui_ace_engine)
 
 ## Code Contribution
 
