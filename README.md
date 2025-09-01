@@ -16,10 +16,9 @@ The currently open Ability Cangjie api only supports standard devices.
 
 ## Architecture
 
-**Figure 1** Architecture of the globalization subsystem
+**Figure 1** Architecture of Cangjie Global
 
-
-![](figures/global_cangjie_wrapper_architecture_en.png "architecture-of-the-global_cangjie_wrapper")
+![Architecture of Cangjie Global](figures/global_cangjie_wrapper_architecture_en.png)
 
 As shown in the architecture:
 
@@ -37,12 +36,13 @@ base/global/global_cangjie_wrapper
 ├── figures                 # architecture pictures
 ├── kit                     # Cangjie LocalizationKit kit code
 │   └── LocalizationKit
-└── ohos                    # Cangjie Global code
-    ├── BUILD.gn
-    ├── i18n
-    ├── raw_file_descriptor
-    ├── resource
-    └── resource_manager
+├── ohos                    # Cangjie Global code
+│   ├── BUILD.gn
+│   ├── i18n
+│   ├── raw_file_descriptor
+│   ├── resource
+│   └── resource_manager
+└── test                    # Cangjie Global test cases
 ```
 
 ## Usage Guidelines
