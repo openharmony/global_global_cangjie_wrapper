@@ -1,0 +1,48 @@
+{
+	"string": [
+	  {
+		"name": "EntryAbility_desc",
+		"value": "description"
+	  },
+	  {
+		"name": "EntryAbility_label",
+		"value": "label"
+	  },
+	  {
+		"name": "app_name",
+		"value": "L2Test"
+	  },
+	  {
+		"name": "Test_Format1",
+		"value": "int is %d"
+	  },
+	  {
+		"name": "Test_Format2",
+		"value": "float is %f"
+	  },
+	  {
+		"name": "Test_Format3",
+		"value": "string is %s"
+	  },
+	  {
+		"name": "module_desc",
+		"value": "module description"
+	  },
+	  {
+		"name": "test",
+		"value": ""
+	  },
+	  {
+		"name": "test1",
+		"value": "%%"
+	  },
+	  {
+		"name": "test2",
+		"value": "%11"
+	  },
+	  {
+		"name": "test3",
+		"value": "%d, %s"
+	  }
+	]
+  }
