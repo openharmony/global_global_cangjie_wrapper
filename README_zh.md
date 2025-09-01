@@ -19,7 +19,7 @@
 **图 1**  全球化仓颉架构图
 
 
-![](figures/global_cangjie_wrapper_architecture.png "全球化仓颉架构图")
+![全球化仓颉架构图](figures/global_cangjie_wrapper_architecture.png)
 
 如架构图所示：
 
@@ -37,12 +37,13 @@ base/global/global_cangjie_wrapper
 ├── figures                 # 存放README中的架构图
 ├── kit                     # 仓颉LocalizationKit的kit化代码
 │   └── LocalizationKit
-└── ohos                    # 仓颉全球化接口实现
-    ├── BUILD.gn
-    ├── i18n
-    ├── raw_file_descriptor
-    ├── resource
-    └── resource_manager
+├── ohos                    # 仓颉全球化接口实现
+│   ├── BUILD.gn
+│   ├── i18n
+│   ├── raw_file_descriptor
+│   ├── resource
+│   └── resource_manager
+└── test                    # 仓颉全球化测试用例
 ```
 
 ## 使用说明
