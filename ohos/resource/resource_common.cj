@@ -139,15 +139,15 @@ protected func getResourceLength(res: AppResource): Length {
                 NativeResourceObject(bundleName.value, moduleName.value, Int32(res.id), resType, paramsStr.value))
         }
         var value = dimension.value
-        let unitType = LengthType.parse(dimension.unit)
+        let unitType = LengthUnit.parse(dimension.unit)
         return match (unitType) {
-            case px(v) => value.px
-            case vp(v) => value.vp
-            case fp(v) => value.fp
-            case percent(v) =>
+            case LengthUnit.Px => value.px
+            case LengthUnit.Vp => value.vp
+            case LengthUnit.Fp => value.fp
+            case LengthUnit.Percent =>
                 value = value * 100.0
                 value.percent
-            case lpx(v) => value.lpx
+            case LengthUnit.Lpx => value.lpx
             case _ => value.vp
         }
     }
