@@ -27,8 +27,7 @@ foreign {
  * @relation export class System
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Global.I18n"
 ]
 public class System {
@@ -40,8 +39,7 @@ public class System {
      * @relation static getAppPreferredLanguage(): string
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     public static func getAppPreferredLanguage(): String {
