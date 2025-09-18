@@ -38,8 +38,7 @@ func getErrorMsg(code: Int32): String {
  * Calendar type.
  */
 @!APILevel[
-    21,
-    stagemodelonly: true,
+    22,
     syscap: "SystemCapability.Global.I18n"
 ]
 public enum CalendarType {
@@ -47,8 +46,7 @@ public enum CalendarType {
      * buddhist calendar type
      */
     @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Buddhist
@@ -56,8 +54,7 @@ public enum CalendarType {
      * chinese calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Chinese
@@ -65,8 +62,7 @@ public enum CalendarType {
      * coptic calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Coptic
@@ -74,8 +70,7 @@ public enum CalendarType {
      * ethiopic calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Ethiopic
@@ -83,8 +78,7 @@ public enum CalendarType {
      * hebrew calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Hebrew
@@ -92,8 +86,7 @@ public enum CalendarType {
      * gregory calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Gregory
@@ -101,8 +94,7 @@ public enum CalendarType {
      * indian calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Indian
@@ -110,8 +102,7 @@ public enum CalendarType {
      * islamic_civil calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     IslamicCivil
@@ -119,8 +110,7 @@ public enum CalendarType {
      * islamic_tbla calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     IslamicTbla
@@ -128,8 +118,7 @@ public enum CalendarType {
      * islamic_umalqura calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     IslamicUmalqura
@@ -137,8 +126,7 @@ public enum CalendarType {
      * japanese calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Japanese
@@ -146,8 +134,7 @@ public enum CalendarType {
      * persian calendar type
      */
     | @!APILevel[
-        21,
-        stagemodelonly: true,
+        22,
         syscap: "SystemCapability.Global.I18n"
     ]
     Persian
