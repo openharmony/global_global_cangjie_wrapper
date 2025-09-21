@@ -25,9 +25,9 @@ As shown in the architecture:
 - Calendar: Provides the capability to obtain and set calendar properties, such as time, time zone, etc.
 - ResourceManager: Provides the capability for application resource acquisition.
 - System: Provides the capability to obtain the application's preferred language.
-- Cangjie Global FFI interface: Based on cross-language interoperability via C interfaces to implement global Cangjie API.
-- i18n: Responsible for providing basic internationalization functions, and encapsulates C interfaces for Cangjie to conduct interoperation.
-- resource_management: Responsible for providing basic resource management functions, and encapsulates C interfaces for Cangjie to conduct interoperation.
+- Cangjie Global FFI interface: Based on cross-language interoperability via C Language interfaces to implement global Cangjie API.
+- i18n: Responsible for providing basic internationalization functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
+- resource_management: Responsible for providing basic resource management functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
 
 ## Directory Structure
 
@@ -39,9 +39,9 @@ base/global/global_cangjie_wrapper
 ├── ohos                    # Cangjie Global code
 │   ├── BUILD.gn
 │   ├── i18n
-│   ├── raw_file_descriptor
-│   ├── resource
-│   └── resource_manager
+│       ├── calendar.cj     # The interface for Calendar
+│       └── system.cj       # The interface for system configuration
+│   └── resource_manager    # The interface for ResourceManager
 └── test                    # Cangjie Global test cases
 ```
 
@@ -65,14 +65,20 @@ For Global-related APIs, please refer to
 
 For relevant guidance, please refer to [Internationalization Development Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_en/internationalization)
 
-## Repositories Involved
-
-[global_i18n](https://gitee.com/openharmony/global_i18n)
-
-[global_resource_management](https://gitee.com/openharmony/global_resource_management)
-
-[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
-
 ## Code Contribution
 
 Developers are welcome to contribute code, documentation, etc. For specific contribution processes and methods, please refer to [Code Contribution](https://gitcode.com/openharmony/docs/blob/master/en/contribute/code-contribution.md).
+
+## Repositories Involved
+
+[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
+[arkui_ace_engine](https://gitcode.com/openharmony/arkui_ace_engine)
+
+[arkui_arkui_cangjie_wrapper](https://gitcode.com/openharmony-sig/arkui_arkui_cangjie_wrapper)
+
+[global_i18n](https://gitcode.com/openharmony/global_i18n)
+
+[global_resource_management](https://gitcode.com/openharmony/global_resource_management)
+
+[hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
