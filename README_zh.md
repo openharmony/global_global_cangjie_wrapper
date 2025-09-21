@@ -26,9 +26,9 @@
 - 日历：提供获取和设置日历属性的能力，如时间，时区等。
 - 资源管理（接口层）：提供应用资源获取的能力。
 - 系统配置：提供获取应用偏好语言能力。
-- 仓颉全球化FFI接口定义：负责定义C互操作仓颉接口，用于实现全球化的能力。
-- 国际化：负责提供国际化基础功能，封装C接口提供给仓颉进行互操作。
-- 资源管理（框架层）：负责提供资源管理基础功能，封装C接口提供给仓颉进行互操作。
+- 仓颉全球化FFI接口定义：负责定义C语言互操作仓颉接口，用于实现全球化的能力。
+- 国际化：负责提供国际化基础功能，封装C语言接口提供给仓颉进行互操作。
+- 资源管理（框架层）：负责提供资源管理基础功能，封装C语言接口提供给仓颉进行互操作。
 
 ## 目录
 
@@ -40,9 +40,9 @@ base/global/global_cangjie_wrapper
 ├── ohos                    # 仓颉全球化接口实现
 │   ├── BUILD.gn
 │   ├── i18n
-│   ├── raw_file_descriptor
-│   ├── resource
-│   └── resource_manager
+│       ├── calendar.cj     # 日历相关接口
+│       └── system.cj       # 系统配置相关接口
+│   └── resource_manager    # 资源管理相关接口
 └── test                    # 仓颉全球化测试用例
 ```
 
@@ -66,14 +66,20 @@ base/global/global_cangjie_wrapper
 
 相关指导请参见[国际化开发指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_zh_cn/internationalization)。
 
-## 相关仓
-
-[global_i18n](https://gitee.com/openharmony/global_i18n)
-
-[global_resource_management](https://gitee.com/openharmony/global_resource_management)
-
-[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
-
 ## 参与贡献
 
 欢迎广大开发者贡献代码、文档等，具体的贡献流程和方式请参见[参与贡献](https://gitcode.com/openharmony/docs/blob/master/zh-cn/contribute/%E5%8F%82%E4%B8%8E%E8%B4%A1%E7%8C%AE.md)。
+
+## 相关仓
+
+[arkcompiler_cangjie_ark_interop](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop)
+
+[arkui_ace_engine](https://gitcode.com/openharmony/arkui_ace_engine)
+
+[arkui_arkui_cangjie_wrapper](https://gitcode.com/openharmony-sig/arkui_arkui_cangjie_wrapper)
+
+[global_i18n](https://gitcode.com/openharmony/global_i18n)
+
+[global_resource_management](https://gitcode.com/openharmony/global_resource_management)
+
+[hiviewdfx_hiviewdfx_cangjie_wrapper](https://gitcode.com/openharmony-sig/hiviewdfx_hiviewdfx_cangjie_wrapper)
