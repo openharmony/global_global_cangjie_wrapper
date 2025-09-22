@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package kit.LocalizationKit
+package LocalizationKit
 
 public import ohos.i18n.*
 public import ohos.resource_manager.*
