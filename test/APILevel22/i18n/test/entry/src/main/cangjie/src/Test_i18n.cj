@@ -35,7 +35,7 @@ class Test_i18n {
     let calendar = getCalendar("zh-Hans")
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_getCalendar_TimeZone() {
         calendar.setTimeZone("Asia/Shanghai")
         let timeZoneAfterSet = calendar.getTimeZone()
@@ -43,7 +43,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_Time() {
         calendar.setTime(5000.0)
         let millis = calendar.getTimeInMillis();
@@ -51,7 +51,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_Set_Get() {
         calendar.set(2000, 1, 1)
         calendar.set(2000, 1, 1, hour: 12, minute: 30, second: 30)
@@ -70,7 +70,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_FirstDayOfWeek() {
         let res = calendar.getFirstDayOfWeek()
         @Expect(res, 1)
@@ -80,7 +80,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_MinimalDaysInFirstWeek() {
         let res = calendar.getMinimalDaysInFirstWeek()
         @Expect(res, 1)
@@ -90,7 +90,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_getDisplayName() {
         let calendar = getCalendar("en-US", calendarType: CalendarType.Buddhist)
         let res = calendar.getDisplayName("zh")
@@ -98,7 +98,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_add() {
         let calendar = getCalendar("zh-Hans")
         calendar.set(2021, 11, 11)
@@ -108,7 +108,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_Calendar_add_errcode() {
         try {
             let calendar = getCalendar("zh-Hans")
@@ -122,7 +122,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_System_getAppPreferredLanguage() {
         try {
             let appPreferredLanguage = System.getAppPreferredLanguage() // 获取应用偏好语言
@@ -134,7 +134,7 @@ class Test_i18n {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func Test_getCalendar_by_type() {
         let typeArray: Array<CalendarType> = [
             CalendarType.Buddhist,
