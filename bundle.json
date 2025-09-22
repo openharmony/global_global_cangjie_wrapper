@@ -1,81 +1,80 @@
 {
-    "name": "@ohos/global_cangjie_wrapper",
-    "version": "6.0",
-    "description": "The global_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the capabilities of the global Subsystem.",
-    "homePage": "https://gitcode.com/openharmony-sig",
-    "license": "Apache License 2.0",
-    "repository": "https://gitcode.com/openharmony-sig/global_global_cangjie_wrapper",
-    "domain": "os",
-    "publishAs": "code-segment",
-    "private": false,
-    "scripts": {},
-    "tags": [
-        "base"
-    ],
-    "keywords": [
-        "global",
-        "resmgr",
-        "standard"
-    ],
-    "envs": [],
-    "dirs": [],
-    "author": {
-        "name": "",
-        "email": "",
-        "url": ""
-    },
-    "contributors": [
-        {
-            "name": "",
-            "email": "",
-            "url": ""
-        }
-    ],
-    "segment": {
-        "destPath": "base/global/global_cangjie_wrapper"
-    },
-    "component": {
-        "name": "global_cangjie_wrapper",
-        "subsystem": "global",
-        "syscap": [
-          "SystemCapability.Global.I18n",
-          "SystemCapability.Global.ResourceManager"
-        ],
-        "features": [],
-        "adapted_system_type": [
-            "standard"
-        ],
-        "hisysevent_config": [
-        ],
-        "rom": "400KB",
-        "ram": "408KB",
-        "deps": {
-          "components": [
-            "cangjie_ark_interop",
-            "hiviewdfx_cangjie_wrapper",
-            "arkui_cangjie_wrapper",
-            "resource_management",
-            "ace_engine",
-            "i18n"
-          ]
-      },
-        "build": {
-            "sub_component": [
-              "//base/global/global_cangjie_wrapper/ohos:global_cangjie_wrapper_package",
-              "//base/global/global_cangjie_wrapper/kit/LocalizationKit:kit.LocalizationKit"
-            ],
-            "inner_kits": [
-              {
-                "name": "//base/global/global_cangjie_wrapper/ohos/resource_manager:ohos.resource_manager"
-              },
-              {
-                "name": "//base/global/global_cangjie_wrapper/ohos/resource:ohos.resource"
-              },
-              {
-                "name": "//base/global/global_cangjie_wrapper/ohos/i18n:ohos.i18n"
-              }
-            ],
-            "test": []
-        }
+  "name": "@ohos/global_cangjie_wrapper",
+  "version": "6.0",
+  "description": "The global_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the capabilities of the global Subsystem.",
+  "homePage": "https://gitcode.com/openharmony-sig",
+  "license": "Apache License 2.0",
+  "repository": "https://gitcode.com/openharmony-sig/global_global_cangjie_wrapper",
+  "domain": "os",
+  "publishAs": "code-segment",
+  "private": false,
+  "scripts": {},
+  "tags": [
+    "base"
+  ],
+  "keywords": [
+    "global",
+    "resmgr",
+    "standard"
+  ],
+  "envs": [],
+  "dirs": [],
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
+  },
+  "contributors": [
+    {
+      "name": "",
+      "email": "",
+      "url": ""
     }
+  ],
+  "segment": {
+    "destPath": "base/global/global_cangjie_wrapper"
+  },
+  "component": {
+    "name": "global_cangjie_wrapper",
+    "subsystem": "global",
+    "syscap": [
+      "SystemCapability.Global.I18n",
+      "SystemCapability.Global.ResourceManager"
+    ],
+    "features": [],
+    "adapted_system_type": [
+      "standard"
+    ],
+    "hisysevent_config": [],
+    "rom": "400KB",
+    "ram": "408KB",
+    "deps": {
+      "components": [
+        "cangjie_ark_interop",
+        "hiviewdfx_cangjie_wrapper",
+        "arkui_cangjie_wrapper",
+        "resource_management",
+        "ace_engine",
+        "i18n"
+      ]
+    },
+    "build": {
+      "sub_component": [
+        "//base/global/global_cangjie_wrapper/ohos:global_cangjie_wrapper_package",
+        "//base/global/global_cangjie_wrapper/kit/LocalizationKit:kit.LocalizationKit"
+      ],
+      "inner_kits": [
+        {
+          "name": "//base/global/global_cangjie_wrapper/ohos/resource_manager:ohos.resource_manager"
+        },
+        {
+          "name": "//base/global/global_cangjie_wrapper/ohos/resource:ohos.resource"
+        },
+        {
+          "name": "//base/global/global_cangjie_wrapper/ohos/i18n:ohos.i18n"
+        }
+      ],
+      "test": []
+    }
+  }
 }
