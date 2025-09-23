@@ -67,7 +67,7 @@ foreign {
  * @relation export function getCalendar(locale: string, type?: string): Calendar
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.I18n"
 ]
 public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Calendar {
@@ -91,7 +91,7 @@ public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Ca
  * @relation export class Calendar
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.I18n"
 ]
 public class Calendar <: RemoteDataLite {
@@ -109,7 +109,7 @@ public class Calendar <: RemoteDataLite {
      * @relation setTime(time: number): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setTime(time: Float64): Unit {
@@ -124,7 +124,7 @@ public class Calendar <: RemoteDataLite {
      * @relation set(year: number, month: number, date: number, hour?: number, minute?: number, second?: number): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func set(year: Int32, month: Int32, date: Int32, hour!: ?Int32 = None, minute!: ?Int32 = None, second!: ?Int32 = None): Unit {
@@ -156,7 +156,7 @@ public class Calendar <: RemoteDataLite {
      * @relation setTimeZone(timezone: string): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setTimeZone(timeZone: String): Unit {
@@ -173,7 +173,7 @@ public class Calendar <: RemoteDataLite {
      * @relation getTimeZone(): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getTimeZone(): String {
@@ -191,7 +191,7 @@ public class Calendar <: RemoteDataLite {
      * @relation getFirstDayOfWeek(): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getFirstDayOfWeek(): Int32 {
@@ -206,7 +206,7 @@ public class Calendar <: RemoteDataLite {
      * @relation setFirstDayOfWeek(value: number): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setFirstDayOfWeek(value: Int32): Unit {
@@ -221,7 +221,7 @@ public class Calendar <: RemoteDataLite {
      * @relation getMinimalDaysInFirstWeek(): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getMinimalDaysInFirstWeek(): Int32 {
@@ -236,7 +236,7 @@ public class Calendar <: RemoteDataLite {
      * @relation setMinimalDaysInFirstWeek(value: number): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setMinimalDaysInFirstWeek(value: Int32): Unit {
@@ -254,7 +254,7 @@ public class Calendar <: RemoteDataLite {
      * @relation get(field: string): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func get(field: String): Int32 {
@@ -275,7 +275,7 @@ public class Calendar <: RemoteDataLite {
      * @relation getDisplayName(locale: string): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getDisplayName(locale: String): String {
@@ -298,7 +298,7 @@ public class Calendar <: RemoteDataLite {
      * @relation add(field: string, amount: number): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func add(field: String, amount: Int32): Unit {
@@ -319,7 +319,7 @@ public class Calendar <: RemoteDataLite {
      * @relation getTimeInMillis(): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getTimeInMillis(): Float64 {

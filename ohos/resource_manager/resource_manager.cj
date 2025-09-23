@@ -30,7 +30,7 @@ import ohos.resource.CResource
  * @relation export interface ResourceManager
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class ResourceManager <: RemoteDataLite {
@@ -76,7 +76,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getRawFdSync(path: string): RawFileDescriptor
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getRawFd(path: String): RawFileDescriptor {
@@ -101,7 +101,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation closeRawFdSync(path: string): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func closeRawFd(path: String): Unit {
@@ -124,7 +124,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getRawFileContentSync(path: string): Uint8Array
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getRawFileContent(path: String): Array<UInt8> {
@@ -154,7 +154,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getRawFileListSync(path: string): Array<string>
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getRawFileList(path: String): Array<String> {
@@ -189,7 +189,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getColorByNameSync(resName: string) : number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getColorByName(resName: String): UInt32 {
@@ -216,7 +216,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getColorSync(resource: Resource) : number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getColor(resource: AppResource): UInt32 {
@@ -243,7 +243,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getColorSync(resId: number) : number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getColor(resId: UInt32): UInt32 {
@@ -266,7 +266,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getBoolean(resId: number): boolean
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getBoolean(resId: UInt32): Bool {
@@ -289,7 +289,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getBoolean(resource: Resource): boolean
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getBoolean(resource: AppResource): Bool {
@@ -316,7 +316,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getBooleanByName(resName: string): boolean
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getBooleanByName(resName: String): Bool {
@@ -343,7 +343,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getNumber(resId: number): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getNumber(resId: UInt32): NumberValueType {
@@ -368,7 +368,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getNumber(resource: Resource): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getNumber(resource: AppResource): NumberValueType {
@@ -395,7 +395,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getNumberByName(resName: string): number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getNumberByName(resName: String): NumberValueType {
@@ -423,7 +423,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getMediaByNameSync(resName: string, density?: number): Uint8Array
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaByName(resName: String, density!: ?ScreenDensity = None): Array<UInt8> {
@@ -461,7 +461,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getMediaContentSync(resId: number, density?: number): Uint8Array
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContent(resId: UInt32, density!: ?ScreenDensity = None): Array<UInt8> {
@@ -488,7 +488,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getMediaContentSync(resource: Resource, density?: number): Uint8Array
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContent(resource: AppResource, density!: ?ScreenDensity = None): Array<UInt8> {
@@ -529,7 +529,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getMediaContentBase64Sync(resId: number, density?: number): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContentBase64(resId: UInt32, density!: ?ScreenDensity = None): String {
@@ -561,7 +561,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getMediaContentBase64Sync(resource: Resource, density?: number): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContentBase64(resource: AppResource, density!: ?ScreenDensity = None): String {
@@ -595,7 +595,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getMediaBase64ByNameSync(resName: string, density?: number): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaBase64ByName(resName: String, density!: ?ScreenDensity = None): String {
@@ -631,7 +631,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getPluralStringValueSync(resId: number, num: number): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getPluralStringValue(resId: UInt32, num: Int64): String {
@@ -660,7 +660,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getPluralStringValueSync(resource: Resource, num: number): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getPluralStringValue(resource: AppResource, num: Int64): String {
@@ -691,7 +691,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getPluralStringByNameSync(resName: string, num: number): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getPluralStringByName(resName: String, num: Int64): String {
@@ -720,7 +720,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getStringArrayValueSync(resId: number): Array<string>
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringArrayValue(resId: UInt32): Array<String> {
@@ -742,7 +742,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getStringArrayValueSync(resource: Resource): Array<string>
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringArrayValue(resource: AppResource): Array<String> {
@@ -766,7 +766,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getStringArrayByNameSync(resName: string): Array<string>
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringArrayByName(resName: String): Array<String> {
@@ -794,7 +794,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getStringSync(resId: number, ...args: Array<string | number>): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getString(resId: UInt32, args: Array<ArgsValueType>): String {
@@ -821,7 +821,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getStringSync(resource: Resource, ...args: Array<string | number>): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getString(resource: AppResource, args: Array<ArgsValueType>): String {
@@ -849,7 +849,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getStringByNameSync(resName: string, ...args: Array<string | number>): string
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringByName(resName: String, args: Array<ArgsValueType>): String {
@@ -872,7 +872,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getConfigurationSync(): Configuration
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getConfiguration(): Configuration {
@@ -894,7 +894,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getDeviceCapabilitySync(): DeviceCapability
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getDeviceCapability(): DeviceCapability {
@@ -914,7 +914,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation addResource(path: string): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func addResource(path: String): Unit {
@@ -935,7 +935,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation removeResource(path: string): void
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func removeResource(path: String): Unit {
@@ -958,7 +958,7 @@ public class ResourceManager <: RemoteDataLite {
      * @relation getLocales(includeSystem?: boolean): Array<string>
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getLocales(includeSystem!: Bool = false): Array<String> {
