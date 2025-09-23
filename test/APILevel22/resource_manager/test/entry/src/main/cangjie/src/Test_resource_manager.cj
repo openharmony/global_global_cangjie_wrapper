@@ -57,7 +57,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getString() {
         let res1 = @r(app.string.EntryAbility_desc)
         let res2_1 = @r(app.string.Test_Format1)
@@ -75,7 +75,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getArrayString() {
         let res = @r(app.strarray.sizeList)
         let expect = ["small", "middle", "large", "extra large"]
@@ -85,7 +85,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getPluralString() {
         let res = @r(app.plural.plural_name)
         @Expect(getResourceManager().getPluralStringValue(res.id, 1), "1 test other")
@@ -94,7 +94,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getMediaContent() {
         let res = @r(app.media.startIcon)
         @Expect(getResourceManager().getMediaContent(res.id).size > 0, true)
@@ -103,7 +103,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getMediaContentBase64() {
         let res = @r(app.media.startIcon)
         @Expect(getResourceManager().getMediaContentBase64(res.id).size > 0, true)
@@ -112,7 +112,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getBoolean() {
         let res = @r(app.boolean.boolean_1)
         @Expect(getResourceManager().getBoolean(res.id), true)
@@ -121,7 +121,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getNumber() {
         let res = @r(app.integer.number_1)
         @Expect(getIntFromNum(getResourceManager().getNumber(res.id)), 123)
@@ -136,7 +136,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getColor() {
         let res = @r(app.color.color_test1)
         @Expect(getResourceManager().getColor(res.id), 0xFFFF_00FF)
@@ -145,7 +145,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getRawFile() {
         @Expect(getResourceManager().getRawFileContent("test.txt").size > 0, true)
         loggerInfo("raw file list = ${getResourceManager().getRawFileList("").toString()}")
@@ -155,19 +155,19 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getConfiguration() {
         getResourceManager().getConfiguration()
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getDeviceCapability() {
         getResourceManager().getDeviceCapability()
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_getLocales() {
         let locales = getResourceManager().getLocales()
         loggerInfo("Locales = ${locales.toString()}")
@@ -175,7 +175,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_addResource() {
         // /data/app/el2/100/base/com.example.samples/haps/entry/files/library-default-unsigned.hsp
         let path = "/data/storage/el2/base/haps/entry/files/library-default-unsigned.hsp"
@@ -195,7 +195,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func test_string() {
         let res2_1 = @r(app.string.Test_Format1)
         let res2_2 = @r(app.string.Test_Format2)
@@ -206,7 +206,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel21, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func getStringWithFormatArgs(): Unit {
         var res = @r(app.string.test1)
         try {
@@ -237,7 +237,7 @@ class Test_resource_manager {
     }
 
     @TestCase
-    @Tag[APILevel20, TestLevel0]
+    @Tag[APILevel22, TestLevel0]
     func getConfiguration_success(): Unit {
         let resMgr = getResourceManager()
         let config = resMgr.getConfiguration()
