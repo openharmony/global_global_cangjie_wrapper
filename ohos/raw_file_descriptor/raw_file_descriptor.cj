@@ -24,7 +24,7 @@ import ohos.labels.*
  * @relation export interface RawFileDescriptor
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class RawFileDescriptor {
@@ -34,7 +34,7 @@ public class RawFileDescriptor {
      * @relation fd: number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public let fd: Int32
@@ -44,7 +44,7 @@ public class RawFileDescriptor {
      * @relation offset: number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public let offset: Int64
@@ -54,7 +54,7 @@ public class RawFileDescriptor {
      * @relation length: number
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public let length: Int64
