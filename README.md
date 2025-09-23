@@ -28,6 +28,9 @@ As shown in the architecture:
 - Cangjie Global FFI interface: Based on cross-language interoperability via C Language interfaces to implement global Cangjie API.
 - i18n: Responsible for providing basic internationalization functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
 - resource_management: Responsible for providing basic resource management functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
+- arkui_cangjie_wrapper: Responsible for providing interface definitions such as ResourceColor, which are used to implement the AppResource class.
+- cangjie_ark_interop: Responsible for providing Cangjie APILevel class definitions, which are used to annotate APIs, as well as providing the definition of BusinessException class that is thrown to users.
+- hiviewdfx_cangjie_wrapper: Responsible for providing logging interfaces, which are used to print logs at key points in the execution path.
 
 ## Directory Structure
 
@@ -39,13 +42,12 @@ base/global/global_cangjie_wrapper
 ├── ohos                        # Cangjie Global code
 │   ├── BUILD.gn
 │   ├── i18n
-│       ├── calendar.cj         # The interface for Calendar
-│       └── system.cj           # The interface for system configuration
+│   │   ├── calendar.cj         # The interface for Calendar
+│   │   └── system.cj           # The interface for system configuration
 │   └── resource_manager        # The interface for ResourceManager
 └── test                        # Cangjie Global test cases
-    └── APILevel22
-        └── i18n                # i18n test cases
-        └── resource_manager    # resource_manager test cases
+    ├── i18n                    # i18n test cases
+    └── resource_manager        # resource_manager test cases
 ```
 
 ## Usage Guidelines

@@ -28,6 +28,9 @@
 - 仓颉全球化FFI接口定义：负责定义C语言互操作仓颉接口，用于实现全球化的能力。
 - 国际化：负责提供国际化基础功能，封装C语言接口提供给仓颉进行互操作。
 - 资源管理（框架层）：负责提供资源管理基础功能，封装C语言接口提供给仓颉进行互操作。
+- arkui_cangjie_wrapper：负责提供ResourceColor等接口定义，用于实现AppResource类。
+- cangjie_ark_interop：负责提供仓颉注解类定义，用于对API进行标注，以及提供抛向用户的BusinessException异常类定义。
+- hiviewdfx_cangjie_wrapper：负责提供日志接口，用于在关键路径处打印日志。
 
 ## 目录
 
@@ -39,13 +42,12 @@ base/global/global_cangjie_wrapper
 ├── ohos                      # 仓颉全球化接口实现
 │   ├── BUILD.gn
 │   ├── i18n
-│       ├── calendar.cj       # 日历相关接口
-│       └── system.cj         # 系统配置相关接口
+│   │   ├── calendar.cj       # 日历相关接口
+│   │   └── system.cj         # 系统配置相关接口
 │   └── resource_manager      # 资源管理相关接口
 └── test                      # 仓颉全球化测试用例
-    └── APILevel22
-        └── i18n              # i18n测试用例
-        └── resource_manager  # resource_manager测试用例
+    ├── i18n                  # i18n测试用例
+    └── resource_manager      # resource_manager测试用例
 ```
 
 ## 使用说明
