@@ -33,16 +33,19 @@ As shown in the architecture:
 
 ```
 base/global/global_cangjie_wrapper
-├── figures                 # architecture pictures
-├── kit                     # Cangjie LocalizationKit kit code
+├── figures                     # architecture pictures
+├── kit                         # Cangjie LocalizationKit kit code
 │   └── LocalizationKit
-├── ohos                    # Cangjie Global code
+├── ohos                        # Cangjie Global code
 │   ├── BUILD.gn
 │   ├── i18n
-│       ├── calendar.cj     # The interface for Calendar
-│       └── system.cj       # The interface for system configuration
-│   └── resource_manager    # The interface for ResourceManager
-└── test                    # Cangjie Global test cases
+│       ├── calendar.cj         # The interface for Calendar
+│       └── system.cj           # The interface for system configuration
+│   └── resource_manager        # The interface for ResourceManager
+└── test                        # Cangjie Global test cases
+    └── APILevel22
+        └── i18n                # i18n test cases
+        └── resource_manager    # resource_manager test cases
 ```
 
 ## Usage Guidelines
@@ -60,8 +63,8 @@ The following features are not provided yet:
 - Cross-thread transmission of resource objects.
 
 For Global-related APIs, please refer to
-1. [ohos.i18n](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-i18n.md)
-2. [ohos.resource_manager](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-resource_manager.md)
+1. [Internationalization](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-i18n.md)
+2. [Resource Management](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-resource_manager.md)
 
 For relevant guidance, please refer to [Internationalization Development Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_en/internationalization)
 
