@@ -2,7 +2,7 @@
 
 ## 简介
 
-当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
+在OpenHarmnoy平台上，全球化仓颉封装为开发者提供了使用仓颉语言进行应用开发时所需的全球化相关的能力。OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
 
 - **资源管理能力**
 
@@ -74,7 +74,7 @@ base/global/global_cangjie_wrapper
 1. [国际化](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md)
 2. [资源管理](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-resource_manager.md)
 
-相关指导请参见[国际化开发指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_zh_cn/internationalization)。
+相关指导请参见[国际化开发指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_zh_cn/internationalization)和[资源管理开发指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/Dev_Guide/source_zh_cn/resource-manager/cj-resource-manager.md)。
 
 ## 约束
 
