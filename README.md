@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The global_cangjie_wrapper is a Cangjie API encapsulated on OpenHarmony based on the capabilities of the global Subsystem. If OpenHarmony systems or applications need to be used globally, they must meet the requirements of users in different regions on languages and cultures. The Globalization subsystem provides the multi-language and multi-cultural capabilities for global use, including:
+If OpenHarmony systems or applications need to be used globally, they must meet the requirements of users in different regions on languages and cultures. The Globalization subsystem provides the multi-language and multi-cultural capabilities for global use, including:
 
 -   **Resource management**
 
@@ -22,14 +22,26 @@ The currently open Ability Cangjie api only supports standard devices.
 
 As shown in the architecture:
 
+Interface:
+
 - Calendar: Provides the capability to obtain and set calendar properties, such as time, time zone, etc.
 - ResourceManager: Provides the capability for application resource acquisition.
 - System: Provides the capability to obtain the application's preferred language.
+
+Framework:
+
+- Calendar wrapper: Implementation encapsulation of Cangjie Calendar, providing Calendar capabilities.
+- ResourceManager wrapper: Implementation encapsulation of Cangjie ResourceManager, providing ResourceManager capabilities.
+- System wrapper: Provides Implementation encapsulation of Cangjie System, providing System capabilities.
 - Cangjie Global FFI interface: Based on cross-language interoperability via C Language interfaces to implement global Cangjie API.
+
+- Explanation of Dependencies in the Architecture Diagram:
+
 - i18n: Responsible for providing basic internationalization functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
-- resource_management: Responsible for providing basic resource management functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
-- arkui_cangjie_wrapper: Responsible for providing interface definitions such as ResourceColor, which are used to implement the AppResource class.
+- Resmgr: Responsible for providing basic resource management functions, and encapsulates C Language interfaces for Cangjie to conduct interoperation.
 - cangjie_ark_interop: Responsible for providing Cangjie APILevel class definitions, which are used to annotate APIs, as well as providing the definition of BusinessException class that is thrown to users.
+- JS UI Framework: responsible for providing FFI interfaces related to Resource, which are used to operate application resources.
+- arkui_cangjie_wrapper: Responsible for providing interface definitions such as ResourceColor, which are used to implement the AppResource class.
 - hiviewdfx_cangjie_wrapper: Responsible for providing logging interfaces, which are used to print logs at key points in the execution path.
 
 ## Directory Structure
@@ -58,17 +70,19 @@ The following features are provided:
 - ResourceManager provides the capability for application resource acquisition.
 - System provides the capability to obtain the application's preferred language.
 
-The following features are not provided yet:
-
-- Date formatting, number formatting, and sorting.
-- Functions such as region management, phone number processing, text processing, time zone and holiday management.
-- Cross-thread transmission of resource objects.
-
 For Global-related APIs, please refer to
 1. [Internationalization](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-i18n.md)
 2. [Resource Management](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_en/apis/LocalizationKit/cj-apis-resource_manager.md)
 
 For relevant guidance, please refer to [Internationalization Development Guide](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_en/internationalization)
+
+## Constraints
+
+The following features are not provided yet:
+
+- Date formatting, number formatting, and sorting.
+- Functions such as region management, phone number processing, text processing, time zone and holiday management.
+- Cross-thread transmission of resource objects.
 
 ## Code Contribution
 
