@@ -1,8 +1,8 @@
-# 全球化仓颉接口
+# 全球化仓颉封装
 
 ## 简介
 
-全球化仓颉接口是在OpenHarmony上基于全球化子系统能力之上封装的仓颉API。当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
+当OpenHarmony系统/应用在全球不同区域使用时，系统/应用需要满足不同市场用户关于语言、文化习俗的需求。全球化仓颉提供支持多语言、多文化的能力，包括：
 
 - **资源管理能力**
 
@@ -22,14 +22,26 @@
 
 如架构图所示：
 
+接口层：
+
 - 日历：提供获取和设置日历属性的能力，如时间，时区等。
-- 资源管理（接口层）：提供获取应用资源的能力。
+- 资源管理：提供获取应用资源的能力。
 - 系统配置：提供获取应用偏好语言能力。
+
+框架层：
+
+- 日历封装：仓颉日历的实现封装，提供日历能力。
+- 资源管理封装：仓颉资源管理的实现封装，提供资源管理能力。
+- 系统配置封装：仓颉系统配置的实现封装，提供系统配置能力。
 - 仓颉全球化FFI接口定义：负责定义C语言互操作仓颉接口，用于实现全球化的能力。
-- 国际化：负责提供国际化基础功能，封装C语言接口提供给仓颉进行互操作。
-- 资源管理（框架层）：负责提供资源管理基础功能，封装C语言接口提供给仓颉进行互操作。
-- arkui_cangjie_wrapper：负责提供ResourceColor等接口定义，用于实现AppResource类。
+
+架构图中的依赖部件引入说明：
+
+- 国际化部件：负责提供国际化基础功能，封装C语言接口提供给仓颉进行互操作。
+- 资源管理组件：负责提供资源管理基础功能，封装C语言接口提供给仓颉进行互操作。
 - cangjie_ark_interop：负责提供仓颉注解类定义，用于对API进行标注，以及提供抛向用户的BusinessException异常类定义。
+- ArkUI开发框架：负责提供Resource相关FFI接口，用于操作应用资源。
+- arkui_cangjie_wrapper：负责提供ResourceColor等接口定义，用于实现AppResource类。
 - hiviewdfx_cangjie_wrapper：负责提供日志接口，用于在关键路径处打印日志。
 
 ## 目录
@@ -58,17 +70,19 @@ base/global/global_cangjie_wrapper
 - 资源管理提供应用资源获取的能力。
 - 系统配置提供获取应用偏好语言能力。
 
-与ArkTS提供的API能力相比，暂不支持以下功能：
-
-- 日期格式化、数字格式化、排序。
-- 区域管理、电话号码处理、文本处理、时区和节假日管理等功能。
-- 跨线程传输资源对象。
-
 全球化相关API请参见：
 1. [国际化](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-i18n.md)
 2. [资源管理](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/blob/master/doc/API_Reference/source_zh_cn/apis/LocalizationKit/cj-apis-resource_manager.md)
 
 相关指导请参见[国际化开发指南](https://gitcode.com/openharmony-sig/arkcompiler_cangjie_ark_interop/tree/master/doc/Dev_Guide/source_zh_cn/internationalization)。
+
+## 约束
+
+与ArkTS提供的API能力相比，暂不支持以下功能：
+
+- 日期格式化、数字格式化、排序。
+- 区域管理、电话号码处理、文本处理、时区和节假日管理等功能。
+- 跨线程传输资源对象。
 
 ## 参与贡献
 
