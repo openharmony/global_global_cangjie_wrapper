@@ -33,7 +33,6 @@ Framework:
 - Calendar wrapper: Implementation encapsulation of Cangjie Calendar, providing Calendar capabilities.
 - ResourceManager wrapper: Implementation encapsulation of Cangjie ResourceManager, providing ResourceManager capabilities.
 - System wrapper: Provides Implementation encapsulation of Cangjie System, providing System capabilities.
-- Cangjie Global FFI interface: Based on cross-language interoperability via C Language interfaces to implement global Cangjie API.
 
 - Explanation of Dependencies in the Architecture Diagram:
 
