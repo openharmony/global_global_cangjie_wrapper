@@ -61,7 +61,7 @@
     "build": {
       "sub_component": [
         "//base/global/global_cangjie_wrapper/ohos:global_cangjie_wrapper_package",
-        "//base/global/global_cangjie_wrapper/kit/LocalizationKit:LocalizationKit"
+        "//base/global/global_cangjie_wrapper/kit/LocalizationKit:kit.LocalizationKit"
       ],
       "inner_kits": [
         {
