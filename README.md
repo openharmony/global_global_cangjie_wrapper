@@ -1,4 +1,4 @@
-# global_cangjie_wrapper
+# global_cangjie_wrapper(beta feature)
 
 ## Introduction
 
