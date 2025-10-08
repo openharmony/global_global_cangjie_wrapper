@@ -32,8 +32,6 @@ let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
 
 /**
  * Provides the device configuration.
- *
- * @relation export class Configuration
  */
 @!APILevel[
     22,
@@ -42,8 +40,6 @@ let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
 public class Configuration {
     /**
      * Indicates the screen direction of the current device.
-     *
-     * @relation direction: Direction
      */
     @!APILevel[
         22,
@@ -52,8 +48,6 @@ public class Configuration {
     public var direction: Direction
     /**
      * Indicates the current system language, for example, zh-Hans-CN.
-     *
-     * @relation locale: string
      */
     @!APILevel[
         22,
@@ -63,8 +57,6 @@ public class Configuration {
 
     /**
      * Indicates the device type.
-     *
-     * @relation deviceType: DeviceType
      */
     @!APILevel[
         22,
@@ -73,8 +65,6 @@ public class Configuration {
     public var deviceType: DeviceType
     /**
      * Indicates the screen density.
-     *
-     * @relation screenDensity: ScreenDensity
      */
     @!APILevel[
         22,
@@ -83,8 +73,6 @@ public class Configuration {
     public var screenDensity: ScreenDensity
     /**
      * Indicates the color mode.
-     *
-     * @relation colorMode: ColorMode
      */
     @!APILevel[
         22,
@@ -93,8 +81,6 @@ public class Configuration {
     public var colorMode: ColorMode
     /**
      * Indicates the mcc.
-     *
-     * @relation mcc: number
      */
     @!APILevel[
         22,
@@ -103,8 +89,6 @@ public class Configuration {
     public var mcc: UInt32
     /**
      * Indicates the mnc.
-     *
-     * @relation mnc: number
      */
     @!APILevel[
         22,
@@ -136,8 +120,6 @@ public class Configuration {
 
 /**
  * Provides the device capability.
- *
- * @relation export class DeviceCapability
  */
 @!APILevel[
     22,
@@ -146,8 +128,6 @@ public class Configuration {
 public class DeviceCapability {
     /**
      * Indicates the screen density of the current device.
-     *
-     * @relation screenDensity: ScreenDensity
      */
     @!APILevel[
         22,
@@ -156,8 +136,6 @@ public class DeviceCapability {
     public let screenDensity: ScreenDensity
     /**
      * Indicates the type of the current device.
-     *
-     * @relation deviceType: DeviceType
      */
     @!APILevel[
         22,
@@ -176,8 +154,6 @@ public class DeviceCapability {
 
 /**
  * Enumerates color mode types.
- *
- * @relation export enum ColorMode
  */
 @!APILevel[
     22,
@@ -186,8 +162,6 @@ public class DeviceCapability {
 public enum ColorMode {
     /**
      * Indicates dark mode.
-     *
-     * @relation DARK = 0
      */
     @!APILevel[
         22,
@@ -196,8 +170,6 @@ public enum ColorMode {
     Dark
     /**
      * Indicates light mode.
-     *
-     * @relation LIGHT = 1
      */
     | @!APILevel[
         22,
@@ -227,8 +199,6 @@ public enum ColorMode {
 public enum ScreenDensity {
     /**
      * Indicates small screen density.
-     *
-     * @relation SCREEN_SDPI = 120
      */
     @!APILevel[
         22,
@@ -237,8 +207,6 @@ public enum ScreenDensity {
     ScreenSdpi
     /**
      * Indicates medium screen density.
-     *
-     * @relation SCREEN_MDPI = 160
      */
     | @!APILevel[
         22,
@@ -247,8 +215,6 @@ public enum ScreenDensity {
     ScreenMdpi
     /**
      * Indicates large screen density.
-     *
-     * @relation SCREEN_LDPI = 240
      */
     | @!APILevel[
         22,
@@ -257,8 +223,6 @@ public enum ScreenDensity {
     ScreenLdpi
     /**
      * Indicates extra-large screen density.
-     *
-     * @relation SCREEN_XLDPI = 320
      */
     | @!APILevel[
         22,
@@ -267,8 +231,6 @@ public enum ScreenDensity {
     ScreenXldpi
     /**
      * Indicates extra-extra-large screen density.
-     *
-     * @relation SCREEN_XXLDPI = 480
      */
     | @!APILevel[
         22,
@@ -277,8 +239,6 @@ public enum ScreenDensity {
     ScreenXxldpi
     /**
      * Indicates extra-extra-extra-large screen density.
-     *
-     * @relation SCREEN_XXXLDPI = 640
      */
     | @!APILevel[
         22,
@@ -320,8 +280,6 @@ public enum ScreenDensity {
 
 /**
  * Enumerates device types.
- *
- * @relation export enum DeviceType
  */
 @!APILevel[
     22,
@@ -330,8 +288,6 @@ public enum ScreenDensity {
 public enum DeviceType {
     /**
      * Indicates a phone.
-     *
-     * @relation DEVICE_TYPE_PHONE = 0x00
      */
     @!APILevel[
         22,
@@ -340,8 +296,6 @@ public enum DeviceType {
     DeviceTypePhone
     /**
      * Indicates a tablet.
-     *
-     * @relation DEVICE_TYPE_TABLET = 0x01
      */
     | @!APILevel[
         22,
@@ -350,8 +304,6 @@ public enum DeviceType {
     DeviceTypeTablet
     /**
      * Indicates a car.
-     *
-     * @relation DEVICE_TYPE_CAR = 0x02
      */
     | @!APILevel[
         22,
@@ -360,8 +312,6 @@ public enum DeviceType {
     DeviceTypeCar
     /**
      * Indicates a PC.
-     *
-     * @relation DEVICE_TYPE_PC = 0x03
      */
     | @!APILevel[
         22,
@@ -370,8 +320,6 @@ public enum DeviceType {
     DeviceTypePc
     /**
      * Indicates a smart TV.
-     *
-     * @relation DEVICE_TYPE_TV = 0x04
      */
     | @!APILevel[
         22,
@@ -380,8 +328,6 @@ public enum DeviceType {
     DeviceTypeTv
     /**
      * Indicates a wearable device.
-     *
-     * @relation DEVICE_TYPE_WEARABLE = 0x06
      */
     | @!APILevel[
         22,
@@ -390,8 +336,6 @@ public enum DeviceType {
     DeviceTypeWearable
     /**
      * Indicates a 2in1 device.
-     *
-     * @relation DEVICE_TYPE_2IN1 = 0x07
      */
     | @!APILevel[
         22,
@@ -419,8 +363,6 @@ public enum DeviceType {
 
 /**
  * Enumerates screen directions.
- *
- * @relation export enum Direction
  */
 @!APILevel[
     22,
@@ -429,8 +371,6 @@ public enum DeviceType {
 public enum Direction {
     /**
      * Enumerates screen directions.
-     *
-     * @relation DIRECTION_VERTICAL = 0
      */
     @!APILevel[
         22,
@@ -439,8 +379,6 @@ public enum Direction {
     DirectionVertical
     /**
      * Indicates the horizontal direction.
-     *
-     * @relation DIRECTION_HORIZONTAL = 1
      */
     | @!APILevel[
         22,
