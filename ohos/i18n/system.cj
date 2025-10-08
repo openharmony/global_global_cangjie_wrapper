@@ -25,8 +25,6 @@ foreign {
 
 /**
  * Provides system functions.
- *
- * @relation export class System
  */
 @!APILevel[
     22,
@@ -37,8 +35,6 @@ public class System {
 
     /**
      * Obtains the preferred language of an application.
-     *
-     * @relation static getAppPreferredLanguage(): string
      */
     @!APILevel[
         22,

@@ -28,8 +28,6 @@ import ohos.resource.CResource
 
 /**
  * Provides the capability of accessing application resources.
- *
- * @relation export interface ResourceManager
  */
 @!APILevel[
     22,
@@ -75,7 +73,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
-     * @relation getRawFdSync(path: string): RawFileDescriptor
      */
     @!APILevel[
         22,
@@ -100,7 +97,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
-     * @relation closeRawFdSync(path: string): void
      */
     @!APILevel[
         22,
@@ -123,7 +119,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
-     * @relation getRawFileContentSync(path: string): Uint8Array
      */
     @!APILevel[
         22,
@@ -153,7 +148,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
-     * @relation getRawFileListSync(path: string): Array<string>
      */
     @!APILevel[
         22,
@@ -188,7 +182,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getColorByNameSync(resName: string) : number
      */
     @!APILevel[
         22,
@@ -215,7 +208,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getColorSync(resource: Resource) : number
      */
     @!APILevel[
         22,
@@ -242,7 +234,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getColorSync(resId: number) : number
      */
     @!APILevel[
         22,
@@ -265,7 +256,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getBoolean(resId: number): boolean
      */
     @!APILevel[
         22,
@@ -288,7 +278,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getBoolean(resource: Resource): boolean
      */
     @!APILevel[
         22,
@@ -315,7 +304,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getBooleanByName(resName: string): boolean
      */
     @!APILevel[
         22,
@@ -342,7 +330,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getNumber(resId: number): number
      */
     @!APILevel[
         22,
@@ -367,7 +354,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getNumber(resource: Resource): number
      */
     @!APILevel[
         22,
@@ -394,7 +380,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getNumberByName(resName: string): number
      */
     @!APILevel[
         22,
@@ -422,7 +407,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 -  If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
-     * @relation getMediaByNameSync(resName: string, density?: number): Uint8Array
      */
     @!APILevel[
         22,
@@ -460,7 +444,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @relation getMediaContentSync(resId: number, density?: number): Uint8Array
      */
     @!APILevel[
         22,
@@ -487,7 +470,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @relation getMediaContentSync(resource: Resource, density?: number): Uint8Array
      */
     @!APILevel[
         22,
@@ -528,7 +510,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @relation getMediaContentBase64Sync(resId: number, density?: number): string
      */
     @!APILevel[
         22,
@@ -560,7 +541,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @relation getMediaContentBase64Sync(resource: Resource, density?: number): string
      */
     @!APILevel[
         22,
@@ -594,7 +574,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
-     * @relation getMediaBase64ByNameSync(resName: string, density?: number): string
      */
     @!APILevel[
         22,
@@ -630,7 +609,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getPluralStringValueSync(resId: number, num: number): string
      */
     @!APILevel[
         22,
@@ -659,7 +637,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getPluralStringValueSync(resource: Resource, num: number): string
      */
     @!APILevel[
         22,
@@ -690,7 +667,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getPluralStringByNameSync(resName: string, num: number): string
      */
     @!APILevel[
         22,
@@ -719,7 +695,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getStringArrayValueSync(resId: number): Array<string>
      */
     @!APILevel[
         22,
@@ -741,7 +716,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getStringArrayValueSync(resource: Resource): Array<string>
      */
     @!APILevel[
         22,
@@ -765,7 +739,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @relation getStringArrayByNameSync(resName: string): Array<string>
      */
     @!APILevel[
         22,
@@ -793,7 +766,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      * @throws { BusinessException } 9001007 - Failed to format the resource obtained based on the resource ID.
-     * @relation getStringSync(resId: number, ...args: Array<string | number>): string
      */
     @!APILevel[
         22,
@@ -820,7 +792,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      * @throws { BusinessException } 9001007 - Failed to format the resource obtained based on the resource ID.
-     * @relation getStringSync(resource: Resource, ...args: Array<string | number>): string
      */
     @!APILevel[
         22,
@@ -848,7 +819,6 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      * @throws { BusinessException } 9001008 - Failed to format the resource obtained based on the resource Name.
-     * @relation getStringByNameSync(resName: string, ...args: Array<string | number>): string
      */
     @!APILevel[
         22,
@@ -871,7 +841,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @throws IllegalStateException - If the instance id invallid.
      * @returns { Configuration } the device configuration.
-     * @relation getConfigurationSync(): Configuration
      */
     @!APILevel[
         22,
@@ -893,7 +862,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @throws IllegalStateException - If the instance id invallid.
      * @returns { DeviceCapability } the device capability.
-     * @relation getDeviceCapabilitySync(): DeviceCapability
      */
     @!APILevel[
         22,
@@ -913,7 +881,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { String } resName - Resource path.
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 9001010 - Invalid overlay path.
-     * @relation addResource(path: string): void
      */
     @!APILevel[
         22,
@@ -934,7 +901,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { String } resName - Resource path.
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 9001010 - Invalid overlay path.
-     * @relation removeResource(path: string): void
      */
     @!APILevel[
         22,
@@ -957,7 +923,6 @@ public class ResourceManager <: RemoteDataLite {
      * @returns { Array<String> } the list of strings for the locales.
      * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
-     * @relation getLocales(includeSystem?: boolean): Array<string>
      */
     @!APILevel[
         22,
