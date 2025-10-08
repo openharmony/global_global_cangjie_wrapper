@@ -66,7 +66,6 @@ foreign {
  * @param { ?CalendarType } calendarType - Calendar. For details about the meanings and application scenarios of
  *                            different values, see Calendar Setting.
  * @returns { Calendar } Calendar object
- * @relation export function getCalendar(locale: string, type?: string): Calendar
  */
 @!APILevel[
     22,
@@ -89,8 +88,6 @@ public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Ca
 
 /**
  * Provides the API for accessing Calendar name, time and date related information.
- *
- * @relation export class Calendar
  */
 @!APILevel[
     22,
@@ -107,8 +104,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the date and time for a Calendar object.
-     *
-     * @relation setTime(time: number): void
      */
     @!APILevel[
         22,
@@ -122,8 +117,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the year, month, day, hour, minute, and second for this Calendar object.
-     *
-     * @relation set(year: number, month: number, date: number, hour?: number, minute?: number, second?: number): void
      */
     @!APILevel[
         22,
@@ -154,8 +147,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the time zone of this Calendar object.
-     *
-     * @relation setTimeZone(timezone: string): void
      */
     @!APILevel[
         22,
@@ -171,8 +162,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the time zone ID of this Calendar object.
-     *
-     * @relation getTimeZone(): string
      */
     @!APILevel[
         22,
@@ -189,8 +178,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the first day of a week for this Calendar object.
-     *
-     * @relation getFirstDayOfWeek(): number
      */
     @!APILevel[
         22,
@@ -204,8 +191,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the first day of a week for this Calendar object.
-     *
-     * @relation setFirstDayOfWeek(value: number): void
      */
     @!APILevel[
         22,
@@ -219,8 +204,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the minimum number of days in the first week for this Calendar object.
-     *
-     * @relation getMinimalDaysInFirstWeek(): number
      */
     @!APILevel[
         22,
@@ -234,8 +217,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the minimum number of days in the first week for this Calendar object.
-     *
-     * @relation setMinimalDaysInFirstWeek(value: number): void
      */
     @!APILevel[
         22,
@@ -253,7 +234,6 @@ public class Calendar <: RemoteDataLite {
      * @param { string } field - Calendar attributes. The following table lists the supported attribute values.
      * @returns { Int32 } Value of the calendar attribute. For example, if the year of the internal date of the
      *                     current Calendar object is 1990, get('year') returns 1990.
-     * @relation get(field: string): number
      */
     @!APILevel[
         22,
@@ -274,7 +254,6 @@ public class Calendar <: RemoteDataLite {
      * @param { string } locale - System locale, which consists of the language, script, and country/region.
      * @returns { string } Calendar display name in the specified language. For example, buddhist is displayed as
      *                     Buddhist Calendar if the locale is en-US.
-     * @relation getDisplayName(locale: string): string
      */
     @!APILevel[
         22,
@@ -297,7 +276,6 @@ public class Calendar <: RemoteDataLite {
      * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessException } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
-     * @relation add(field: string, amount: number): void
      */
     @!APILevel[
         22,
@@ -317,8 +295,6 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the timestamp of this Calendar object.
-     *
-     * @relation getTimeInMillis(): number
      */
     @!APILevel[
         22,

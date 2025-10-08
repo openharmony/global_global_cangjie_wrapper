@@ -22,8 +22,6 @@ import ohos.labels.*
 
 /**
  * Contains rawFile descriptor information.
- *
- * @relation export interface RawFileDescriptor
  */
 @!APILevel[
     22,
@@ -32,8 +30,6 @@ import ohos.labels.*
 public class RawFileDescriptor {
     /**
      * rawfile descriptor
-     *
-     * @relation fd: number
      */
     @!APILevel[
         22,
@@ -42,8 +38,6 @@ public class RawFileDescriptor {
     public let fd: Int32
     /**
      * the offset from where the raw file starts in the HAP
-     *
-     * @relation offset: number
      */
     @!APILevel[
         22,
@@ -52,8 +46,6 @@ public class RawFileDescriptor {
     public let offset: Int64
     /**
      * the length of the raw file in the HAP
-     *
-     * @relation length: number
      */
     @!APILevel[
         22,

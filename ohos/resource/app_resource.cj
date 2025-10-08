@@ -25,8 +25,6 @@ import std.deriving.Derive
 
 /**
  * Contains resource descriptor information.
- *
- * @relation export interface Resource
  */
 @!APILevel[
     22,
@@ -35,8 +33,6 @@ import std.deriving.Derive
 public class AppResource <: Length & ResourceColor & ResourceStr {
     /**
      * bundle name in hap
-     *
-     * @relation bundleName: string
      */
     @!APILevel[
         22,
@@ -45,8 +41,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let bundleName: String
     /**
      * module name in hap
-     *
-     * @relation moduleName: string
      */
     @!APILevel[
         22,
@@ -55,8 +49,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let moduleName: String
     /**
      * resource id in hap
-     *
-     * @relation id: number
      */
     @!APILevel[
         22,
@@ -65,8 +57,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let id: UInt32
     /**
      * Set params.
-     *
-     * @relation params?: any[]
      */
     @!APILevel[
         22,
@@ -75,8 +65,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let params: ?Array<Any>
     /**
      * Set type.
-     *
-     * @relation type?: number
      */
     @!APILevel[
         22,
