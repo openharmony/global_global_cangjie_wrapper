@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+// The Cangjie API is in Beta. For details on its capabilities and limitations, please refer to the README file.
+
 package ohos.raw_file_descriptor
 
 import ohos.ffi.*
@@ -20,8 +22,6 @@ import ohos.labels.*
 
 /**
  * Contains rawFile descriptor information.
- *
- * @relation export interface RawFileDescriptor
  */
 @!APILevel[
     since: "22",
@@ -30,8 +30,6 @@ import ohos.labels.*
 public class RawFileDescriptor {
     /**
      * rawfile descriptor
-     *
-     * @relation fd: number
      */
     @!APILevel[
         since: "22",
@@ -40,8 +38,6 @@ public class RawFileDescriptor {
     public let fd: Int32
     /**
      * the offset from where the raw file starts in the HAP
-     *
-     * @relation offset: number
      */
     @!APILevel[
         since: "22",
@@ -50,8 +46,6 @@ public class RawFileDescriptor {
     public let offset: Int64
     /**
      * the length of the raw file in the HAP
-     *
-     * @relation length: number
      */
     @!APILevel[
         since: "22",

@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+// The Cangjie API is in Beta. For details on its capabilities and limitations, please refer to the README file.
+
 package ohos.resource
 
 import ohos.ffi.*
@@ -23,8 +25,6 @@ import std.deriving.Derive
 
 /**
  * Contains resource descriptor information.
- *
- * @relation export interface Resource
  */
 @!APILevel[
     since: "22",
@@ -33,8 +33,6 @@ import std.deriving.Derive
 public class AppResource <: Length & ResourceColor & ResourceStr {
     /**
      * bundle name in hap
-     *
-     * @relation bundleName: string
      */
     @!APILevel[
         since: "22",
@@ -43,8 +41,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let bundleName: String
     /**
      * module name in hap
-     *
-     * @relation moduleName: string
      */
     @!APILevel[
         since: "22",
@@ -53,8 +49,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let moduleName: String
     /**
      * resource id in hap
-     *
-     * @relation id: number
      */
     @!APILevel[
         since: "22",
@@ -63,8 +57,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let id: UInt32
     /**
      * Set params.
-     *
-     * @relation params?: any[]
      */
     @!APILevel[
         since: "22",
@@ -73,8 +65,6 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
     public let params: ?Array<Any>
     /**
      * Set type.
-     *
-     * @relation type?: number
      */
     @!APILevel[
         since: "22",

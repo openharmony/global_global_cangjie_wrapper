@@ -13,6 +13,8 @@
  * limitations under the License.
  */
 
+// The Cangjie API is in Beta. For details on its capabilities and limitations, please refer to the README file.
+
 package ohos.i18n
 
 import ohos.labels.APILevel
@@ -23,8 +25,6 @@ foreign {
 
 /**
  * Provides system functions.
- *
- * @relation export class System
  */
 @!APILevel[
     since: "22",
@@ -35,8 +35,6 @@ public class System {
 
     /**
      * Obtains the preferred language of an application.
-     *
-     * @relation static getAppPreferredLanguage(): string
      */
     @!APILevel[
         since: "22",
