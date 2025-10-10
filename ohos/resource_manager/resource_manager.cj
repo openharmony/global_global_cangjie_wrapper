@@ -404,7 +404,8 @@ public class ResourceManager <: RemoteDataLite {
      *                 to use the density of current system dpi.
      * @returns { Array<UInt8> } The obtained specified screen density media file content.
      * @throws IllegalStateException - If the instance id invallid.
-     * @throws { BusinessException } 401 -  If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 -  If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      */
@@ -441,7 +442,8 @@ public class ResourceManager <: RemoteDataLite {
      *                to use the density of current system dpi.
      * @returns { Array<UInt8> } Indicates the obtained media file content.
      * @throws IllegalStateException - If the instance id invallid.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -467,7 +469,8 @@ public class ResourceManager <: RemoteDataLite {
      *                to use the density of current system dpi.
      * @returns { Array<UInt8> } Indicates the obtained media file content.
      * @throws IllegalStateException - If the instance id invallid.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -507,7 +510,8 @@ public class ResourceManager <: RemoteDataLite {
      * @returns { String } Indicates the obtained Base64 code of the media file.
      * @throws IllegalStateException - If the instance id invallid.
      * @throws IllegalMemoryException - Out of memory.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -538,7 +542,8 @@ public class ResourceManager <: RemoteDataLite {
      * @returns { String } Indicates the obtained Base64 code of the media file.
      * @throws IllegalStateException - If the instance id invallid.
      * @throws IllegalMemoryException - Out of memory.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -571,7 +576,8 @@ public class ResourceManager <: RemoteDataLite {
      * @returns { String } The obtained Base64 code of the specified screen density media file.
      * @throws IllegalStateException - If the instance id invallid.
      * @throws IllegalMemoryException - Out of memory.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      */
