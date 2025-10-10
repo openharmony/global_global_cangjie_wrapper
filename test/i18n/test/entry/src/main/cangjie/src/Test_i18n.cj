@@ -18,7 +18,7 @@
  */
 package ohos_app_cangjie_entry
 
-internal import AbilityKit.{UIAbilityContext, Ability, Want, LaunchParam}
+internal import kit.AbilityKit.{UIAbilityContext, Ability, Want, LaunchParam}
 import std.unittest.testmacro.*
 import ohos.i18n.*
 import ohos.business_exception.*
