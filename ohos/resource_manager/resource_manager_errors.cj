@@ -50,7 +50,7 @@ let ERROR_CODE_MAP = HashMap<Int32, String>(
 func throwIfNotSuccess(code: Int32, errorMsg: String): Unit {
     if (code != SUCCESS_CODE) {
         if (code == INVALID_CODE) {
-            throw IllegalStateException("invalid instance")
+            throw BusinessException(9001002, "Invalid instance")
         }
         throw BusinessException(code, errorMsg)
     }
@@ -58,7 +58,7 @@ func throwIfNotSuccess(code: Int32, errorMsg: String): Unit {
 
 func throwIfNull(ptr: CString): Unit {
     if (ptr.isNull()) {
-        throw IllegalMemoryException("Out of memory.")
+        throw BusinessException(401, "Parameter error.")
     }
 }
 

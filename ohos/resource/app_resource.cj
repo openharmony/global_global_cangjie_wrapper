@@ -74,6 +74,12 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
 
     /**
      * AppResource constructor.
+     *
+     * @param { String } bundleName - Bundle name in hap.
+     * @param { String } moduleName - Module name in hap.
+     * @param { UInt32 } id - Resource id in hap.
+     * @param { Array<Any> } params - Set params. Default is None.
+     * @param { Int32 } resType - Set type. Default is None.
      */
     @!APILevel[
         22,
