@@ -104,6 +104,9 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the date and time for a Calendar object.
+     *
+     * @param { Float64 } time - Unix timestamp, which indicates the number of milliseconds that have elapsed since the
+     *                          Unix epoch.
      */
     @!APILevel[
         since: "22",
@@ -117,6 +120,13 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the year, month, day, hour, minute, and second for this Calendar object.
+     *
+     * @param { Int32 } year - Year to set.
+     * @param { Int32 } month - Month to set. Note: The month starts from 0. For example, 0 indicates January.
+     * @param { Int32 } date - Day to set.
+     * @param { Int32 } hour - Hour to set. The default value is the current system time.
+     * @param { Int32 } minute - Minute to set. The default value is the current system time.
+     * @param { Int32 } second - Second to set. The default value is the current system time.
      */
     @!APILevel[
         since: "22",
@@ -147,6 +157,8 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the time zone of this Calendar object.
+     *
+     * @param { String } timezone - Valid time zone ID, for example, Asia/Shanghai.
      */
     @!APILevel[
         since: "22",
@@ -162,6 +174,8 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the time zone ID of this Calendar object.
+     *
+     * @returns { String } Time zone ID.
      */
     @!APILevel[
         since: "22",
@@ -178,6 +192,8 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the first day of a week for this Calendar object.
+     *
+     * @returns { Int32 } First day of a week. The value 1 indicates Sunday, and the value 7 indicates Saturday.
      */
     @!APILevel[
         since: "22",
@@ -191,6 +207,8 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the first day of a week for this Calendar object.
+     *
+     * @param { Int32 } value - Start day of a week. The value 1 indicates Sunday, and the value 7 indicates Saturday.
      */
     @!APILevel[
         since: "22",
@@ -204,6 +222,8 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the minimum number of days in the first week for this Calendar object.
+     *
+     * @returns { Int32 } Minimum number of days in the first week of a year.
      */
     @!APILevel[
         since: "22",
@@ -217,6 +237,8 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Sets the minimum number of days in the first week for this Calendar object.
+     *
+     * @param { Int32 } value - Minimum number of days in the first week of a year.
      */
     @!APILevel[
         since: "22",
@@ -231,7 +253,7 @@ public class Calendar <: RemoteDataLite {
     /**
      * Obtains the values of the calendar attributes in this Calendar object.
      *
-     * @param { string } field - Calendar attributes. The following table lists the supported attribute values.
+     * @param { String } field - Calendar attributes. The following table lists the supported attribute values.
      * @returns { Int32 } Value of the calendar attribute. For example, if the year of the internal date of the
      *                     current Calendar object is 1990, get('year') returns 1990.
      */
@@ -251,8 +273,8 @@ public class Calendar <: RemoteDataLite {
     /**
      * Obtains calendar display name in the specified language.
      *
-     * @param { string } locale - System locale, which consists of the language, script, and country/region.
-     * @returns { string } Calendar display name in the specified language. For example, buddhist is displayed as
+     * @param { String } locale - System locale, which consists of the language, script, and country/region.
+     * @returns { String } Calendar display name in the specified language. For example, buddhist is displayed as
      *                     Buddhist Calendar if the locale is en-US.
      */
     @!APILevel[
@@ -273,6 +295,11 @@ public class Calendar <: RemoteDataLite {
     /**
      * Performs addition or subtraction on the calendar attributes of this Calendar object.
      *
+     *
+     * @param { String } field - Calendar attribute. The value can be any of the following: year, month, week_of_year,
+     *                           week_of_month, date, day_of_year, day_of_week, day_of_week_in_month, hour,
+     *                           hour_of_day, minute, second, millisecond. For details about the values, see get.
+     * @param { Int32 } amount - Addition or subtraction amount.
      * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
      * @throws { BusinessException } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
@@ -295,6 +322,9 @@ public class Calendar <: RemoteDataLite {
 
     /**
      * Obtains the timestamp of this Calendar object.
+     *
+     * @returns { Float64 } Unix timestamp, which indicates the number of milliseconds that have elapsed since the
+     *                     Unix epoch.
      */
     @!APILevel[
         since: "22",

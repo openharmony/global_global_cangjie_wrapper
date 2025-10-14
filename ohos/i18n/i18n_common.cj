@@ -21,6 +21,7 @@ import std.time.DateTime
 import ohos.business_exception.getUniversalErrorMsg
 import std.collection.HashMap
 import ohos.labels.APILevel
+import ohos.business_exception.BusinessException
 
 const INVALID_PARAMETER = 890001i32
 let ERROR_CODE_MAP = HashMap<Int32, String>(
@@ -156,7 +157,7 @@ public enum CalendarType {
             case IslamicUmalqura => "islamic_umalqura"
             case Japanese => "japanese"
             case Persian => "persian"
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(INVALID_PARAMETER, "Invalid parameter. Possible causes: Parameter verification failed.")
         }
     }
 }
