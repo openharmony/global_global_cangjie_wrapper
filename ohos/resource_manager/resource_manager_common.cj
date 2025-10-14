@@ -32,6 +32,7 @@ let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
 
 /**
  * Provides the device configuration.
+ *
  */
 @!APILevel[
     since: "22",
@@ -40,6 +41,7 @@ let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
 public class Configuration {
     /**
      * Indicates the screen direction of the current device.
+     *
      */
     @!APILevel[
         since: "22",
@@ -48,6 +50,7 @@ public class Configuration {
     public var direction: Direction
     /**
      * Indicates the current system language, for example, zh-Hans-CN.
+     *
      */
     @!APILevel[
         since: "22",
@@ -57,6 +60,7 @@ public class Configuration {
 
     /**
      * Indicates the device type.
+     *
      */
     @!APILevel[
         since: "22",
@@ -65,6 +69,7 @@ public class Configuration {
     public var deviceType: DeviceType
     /**
      * Indicates the screen density.
+     *
      */
     @!APILevel[
         since: "22",
@@ -73,6 +78,7 @@ public class Configuration {
     public var screenDensity: ScreenDensity
     /**
      * Indicates the color mode.
+     *
      */
     @!APILevel[
         since: "22",
@@ -81,6 +87,7 @@ public class Configuration {
     public var colorMode: ColorMode
     /**
      * Indicates the mcc.
+     *
      */
     @!APILevel[
         since: "22",
@@ -89,6 +96,7 @@ public class Configuration {
     public var mcc: UInt32
     /**
      * Indicates the mnc.
+     *
      */
     @!APILevel[
         since: "22",
@@ -120,6 +128,7 @@ public class Configuration {
 
 /**
  * Provides the device capability.
+ *
  */
 @!APILevel[
     since: "22",
@@ -128,6 +137,7 @@ public class Configuration {
 public class DeviceCapability {
     /**
      * Indicates the screen density of the current device.
+     *
      */
     @!APILevel[
         since: "22",
@@ -136,6 +146,7 @@ public class DeviceCapability {
     public let screenDensity: ScreenDensity
     /**
      * Indicates the type of the current device.
+     *
      */
     @!APILevel[
         since: "22",
@@ -154,6 +165,7 @@ public class DeviceCapability {
 
 /**
  * Enumerates color mode types.
+ *
  */
 @!APILevel[
     since: "22",
@@ -162,6 +174,7 @@ public class DeviceCapability {
 public enum ColorMode {
     /**
      * Indicates dark mode.
+     *
      */
     @!APILevel[
         since: "22",
@@ -170,6 +183,7 @@ public enum ColorMode {
     Dark
     /**
      * Indicates light mode.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -182,7 +196,7 @@ public enum ColorMode {
         match (val) {
             case 0 => Dark
             case 1 => Light
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
     }
 }
@@ -199,6 +213,7 @@ public enum ColorMode {
 public enum ScreenDensity {
     /**
      * Indicates small screen density.
+     *
      */
     @!APILevel[
         since: "22",
@@ -207,6 +222,7 @@ public enum ScreenDensity {
     ScreenSdpi
     /**
      * Indicates medium screen density.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -215,6 +231,7 @@ public enum ScreenDensity {
     ScreenMdpi
     /**
      * Indicates large screen density.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -223,6 +240,7 @@ public enum ScreenDensity {
     ScreenLdpi
     /**
      * Indicates extra-large screen density.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -231,6 +249,7 @@ public enum ScreenDensity {
     ScreenXldpi
     /**
      * Indicates extra-extra-large screen density.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -239,6 +258,7 @@ public enum ScreenDensity {
     ScreenXxldpi
     /**
      * Indicates extra-extra-extra-large screen density.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -258,7 +278,7 @@ public enum ScreenDensity {
             case ScreenXldpi=> 320
             case ScreenXxldpi => 480
             case ScreenXxxldpi => 640
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
     }
 
@@ -273,13 +293,14 @@ public enum ScreenDensity {
             case 320 => ScreenXldpi
             case 480 => ScreenXxldpi
             case 640 => ScreenXxxldpi
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
     }
 }
 
 /**
  * Enumerates device types.
+ *
  */
 @!APILevel[
     since: "22",
@@ -288,6 +309,7 @@ public enum ScreenDensity {
 public enum DeviceType {
     /**
      * Indicates a phone.
+     *
      */
     @!APILevel[
         since: "22",
@@ -296,6 +318,7 @@ public enum DeviceType {
     DeviceTypePhone
     /**
      * Indicates a tablet.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -304,6 +327,7 @@ public enum DeviceType {
     DeviceTypeTablet
     /**
      * Indicates a car.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -312,6 +336,7 @@ public enum DeviceType {
     DeviceTypeCar
     /**
      * Indicates a PC.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -320,6 +345,7 @@ public enum DeviceType {
     DeviceTypePc
     /**
      * Indicates a smart TV.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -328,6 +354,7 @@ public enum DeviceType {
     DeviceTypeTv
     /**
      * Indicates a wearable device.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -336,6 +363,7 @@ public enum DeviceType {
     DeviceTypeWearable
     /**
      * Indicates a 2in1 device.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -356,13 +384,14 @@ public enum DeviceType {
             case 4 => DeviceTypeTv
             case 6 => DeviceTypeWearable
             case 7 => DeviceType2In1
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
     }
 }
 
 /**
  * Enumerates screen directions.
+ *
  */
 @!APILevel[
     since: "22",
@@ -371,6 +400,7 @@ public enum DeviceType {
 public enum Direction {
     /**
      * Enumerates screen directions.
+     *
      */
     @!APILevel[
         since: "22",
@@ -379,6 +409,7 @@ public enum Direction {
     DirectionVertical
     /**
      * Indicates the horizontal direction.
+     *
      */
     | @!APILevel[
         since: "22",
@@ -394,7 +425,7 @@ public enum Direction {
         match (val) {
             case 0 => DirectionVertical
             case 1 => DirectionHorizontal
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
     }
 }
@@ -465,7 +496,7 @@ public enum ArgsValueType {
             case Int32Value(_) => r'd'
             case Float32Value(_) => r'f'
             case StringValue(_) => r's'
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
         return l == r
     }
@@ -475,7 +506,7 @@ public enum ArgsValueType {
             case Int32Value(v) => v.toString()
             case Float32Value(v) => v.toString()
             case StringValue(v) => v
-            case _ => throw IllegalArgumentException("The type is not supported.")
+            case _ => throw BusinessException(401, "Parameter error.")
         }
     }
 }

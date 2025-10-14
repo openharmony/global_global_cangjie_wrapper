@@ -25,9 +25,11 @@ import std.collection.{HashMap, ArrayList}
 import std.sync.Mutex
 import ohos.raw_file_descriptor.RetDataRawFileDescriptor
 import ohos.resource.CResource
+import ohos.business_exception.BusinessException
 
 /**
  * Provides the capability of accessing application resources.
+ *
  */
 @!APILevel[
     since: "22",
@@ -70,7 +72,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } path - Indicates the resource relative path.
      * @returns { RawFileDescriptor } The raw file resource descriptor.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
@@ -94,7 +95,6 @@ public class ResourceManager <: RemoteDataLite {
      * Close the raw file resource descriptor corresponding to the specified resource path.
      *
      * @param { String } path - Indicates the resource relative path.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
@@ -116,7 +116,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } path - Indicates the resource relative path.
      * @returns { Array<UInt8> } the raw file resource corresponding to the specified resource path.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
@@ -145,7 +144,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } path - Indicates the resource relative path.
      * @returns { Array<String> } The rawfile resource list.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
@@ -177,7 +175,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } resName - Indicates the resource name.
      * @returns { UInt32 } Indicates the integer reference value representing the color data.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
@@ -203,7 +200,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { AppResource } resource - Indicates the resource object.
      * @returns { UInt32 } Indicates the integer reference value representing the color data.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -229,7 +225,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { UInt32 } resId - Indicates the resource ID.
      * @returns { UInt32 } Indicates the integer reference value representing the color data.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -251,7 +246,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { UInt32 } resId - Indicates the resource ID.
      * @returns { Bool } The boolean resource corresponding to the resource ID.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -273,7 +267,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { AppResource } resource - Indicates the resource object.
      * @returns { Bool } The boolean resource corresponding to the resource object.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -299,7 +292,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } resName - Indicates the resource name.
      * @returns { Bool } The boolean resource corresponding to the resource name.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
@@ -325,7 +317,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { UInt32 } resId - Indicates the resource ID.
      * @returns { NumberValueType } The number resource corresponding to the resource ID.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -349,7 +340,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { AppResource } resource - Indicates the resource object.
      * @returns { NumberValueType } The number resource corresponding to the resource object.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -375,7 +365,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } resName - Indicates the resource name.
      * @returns { NumberValueType } The number resource corresponding to the resource name.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
@@ -403,8 +392,8 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { Array<UInt8> } The obtained specified screen density media file content.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws { BusinessException } 401 -  If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 -  If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      */
@@ -440,8 +429,8 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Array<UInt8> } Indicates the obtained media file content.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -466,8 +455,8 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { Array<UInt8> } Indicates the obtained media file content.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -505,9 +494,8 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { String } Indicates the obtained Base64 code of the media file.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws IllegalMemoryException - Out of memory.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -536,9 +524,8 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } density - The optional parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                to use the density of current system dpi.
      * @returns { String } Indicates the obtained Base64 code of the media file.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws IllegalMemoryException - Out of memory.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
@@ -569,9 +556,8 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } density - The parameter ScreenDensity{@link ScreenDensity}, A value of 0 means
      *                 to use the density of current system dpi.
      * @returns { String } The obtained Base64 code of the specified screen density media file.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws IllegalMemoryException - Out of memory.
-     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter types; 2.Parameter verification failed.
+     * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: 1.Incorrect parameter
+     * types; 2.Parameter verification failed.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      */
@@ -603,8 +589,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { Int64 } num - Indicates the number.
      * @returns { String } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws IllegalMemoryException - Out of memory.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -631,8 +615,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { Int64 } num - Indicates the number.
      * @returns { String } The singular-plural character string represented by the ID string
      *         corresponding to the specified number.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws IllegalMemoryException - Out of memory.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -661,8 +643,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { Int64 } num - Indicates the number.
      * @returns { String } The singular-plural character string represented by the name string
      *         corresponding to the specified number.
-     * @throws IllegalStateException - If the instance id invallid.
-     * @throws IllegalMemoryException - Out of memory.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
@@ -690,7 +670,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { UInt32 } resId - Indicates the resource ID.
      * @returns { Array<String> } The array of character strings corresponding to the specified resource ID.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -711,7 +690,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { AppResource } resource - Indicates the resource object.
      * @returns { Array<String> } The array of character strings corresponding to the specified resource object.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -734,7 +712,6 @@ public class ResourceManager <: RemoteDataLite {
      *
      * @param { String } resName - Indicates the resource name.
      * @returns { Array<String> } the array of character strings corresponding to the specified resource name.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
@@ -760,7 +737,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { UInt32 } resId - Indicates the resource ID.
      * @param { Array<ArgsValueType> } args - Indicates the formatting string resource parameters.
      * @returns { String } The character string corresponding to the resource ID.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -786,7 +762,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { AppResource } resource - Indicates the resource object.
      * @param { Array<ArgsValueType> } args - Indicates the formatting string resource parameters.
      * @returns { String } The character string corresponding to the resource object.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001001 - Invalid resource ID.
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
@@ -813,7 +788,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { String } resName - Indicates the resource name.
      * @param { Array<ArgsValueType> } args - Indicates the formatting string resource parameters.
      * @returns { String } The character string corresponding to the resource name.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      * @throws { BusinessException } 9001003 - Invalid resource name.
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
@@ -839,7 +813,6 @@ public class ResourceManager <: RemoteDataLite {
     /**
      * Obtains the device configuration.
      *
-     * @throws IllegalStateException - If the instance id invallid.
      * @returns { Configuration } the device configuration.
      */
     @!APILevel[
@@ -860,7 +833,6 @@ public class ResourceManager <: RemoteDataLite {
     /**
      * Obtains the device capability.
      *
-     * @throws IllegalStateException - If the instance id invallid.
      * @returns { DeviceCapability } the device capability.
      */
     @!APILevel[
@@ -879,7 +851,6 @@ public class ResourceManager <: RemoteDataLite {
      * Add overlay resources during application runtime.
      *
      * @param { String } resName - Resource path.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 9001010 - Invalid overlay path.
      */
     @!APILevel[
@@ -899,7 +870,6 @@ public class ResourceManager <: RemoteDataLite {
      * Remove overlay resources during application runtime.
      *
      * @param { String } resName - Resource path.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 9001010 - Invalid overlay path.
      */
     @!APILevel[
@@ -921,7 +891,6 @@ public class ResourceManager <: RemoteDataLite {
      * @param { Bool } includeSystem - the parameter controls whether to include system resources,
      *     the default value is false, it has no effect when only system resources query the locales list.
      * @returns { Array<String> } the list of strings for the locales.
-     * @throws IllegalStateException - If the instance id invallid.
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      */
     @!APILevel[
