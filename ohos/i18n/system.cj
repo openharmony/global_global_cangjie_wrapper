@@ -35,6 +35,8 @@ public class System {
 
     /**
      * Obtains the preferred language of an application.
+     *
+     * @returns { String } Returns the preferred language of the application.
      */
     @!APILevel[
         22,

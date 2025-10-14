@@ -20,6 +20,7 @@ package ohos.resource
 import ohos.base.*
 import ohos.encoding.json.*
 import ohos.labels.APILevel
+import ohos.business_exception.BusinessException
 
 @C
 struct NativeDimension {
@@ -166,7 +167,7 @@ protected func parseResourceParams(paramsOpt: ?Array<Any>): String {
         } else if (let Some(v) <- (param as Float64)) {
             jsonArr.add(JsonFloat(v))
         } else {
-            throw IllegalArgumentException("Invalid param type.")
+            throw BusinessException(9001008, "Failed to format the resource obtained based on the resource Name.")
         }
     }
     return jsonArr.toJsonString()
