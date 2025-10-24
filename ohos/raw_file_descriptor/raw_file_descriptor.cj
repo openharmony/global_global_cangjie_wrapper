@@ -35,7 +35,7 @@ public class RawFileDescriptor {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let fd: Int32
+    public var fd: Int32
     /**
      * the offset from where the raw file starts in the HAP
      */
@@ -43,7 +43,7 @@ public class RawFileDescriptor {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let offset: Int64
+    public var offset: Int64
     /**
      * the length of the raw file in the HAP
      */
@@ -51,7 +51,7 @@ public class RawFileDescriptor {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let length: Int64
+    public var length: Int64
 
     protected init(raw: RetDataRawFileDescriptor) {
         this.fd = raw.fd
