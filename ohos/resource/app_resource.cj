@@ -38,7 +38,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let bundleName: String
+    public var bundleName: String
     /**
      * module name in hap
      */
@@ -46,7 +46,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let moduleName: String
+    public var moduleName: String
     /**
      * resource id in hap
      */
@@ -54,7 +54,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let id: UInt32
+    public var id: UInt32
     /**
      * Set params.
      */
@@ -62,7 +62,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let params: ?Array<Any>
+    public var params: ?Array<Any>
     /**
      * Set type.
      */
@@ -70,7 +70,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let resType: ?Int32
+    public var resType: ?Int32
 
     /**
      * AppResource constructor.
