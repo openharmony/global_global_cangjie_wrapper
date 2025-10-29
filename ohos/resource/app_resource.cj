@@ -17,10 +17,8 @@
 
 package ohos.resource
 
-import ohos.ffi.*
-import std.collection.*
-import ohos.base.*
-import ohos.labels.*
+import ohos.base.{Length, ResourceColor, ResourceStr}
+import ohos.labels.APILevel
 import std.deriving.Derive
 
 /**
