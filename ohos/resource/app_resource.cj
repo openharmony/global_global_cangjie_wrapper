@@ -25,7 +25,7 @@ import std.deriving.Derive
  * Contains resource descriptor information.
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class AppResource <: Length & ResourceColor & ResourceStr {
@@ -33,7 +33,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
      * bundle name in hap
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var bundleName: String
@@ -41,7 +41,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
      * module name in hap
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var moduleName: String
@@ -49,7 +49,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
      * resource id in hap
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var id: UInt32
@@ -57,7 +57,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
      * Set params.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var params: ?Array<Any>
@@ -65,7 +65,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
      * Set type.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var resType: ?Int32
@@ -80,7 +80,7 @@ public class AppResource <: Length & ResourceColor & ResourceStr {
      * @param { Int32 } resType - Set type. Default is None.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public init(
