@@ -32,7 +32,7 @@ import ohos.business_exception.BusinessException
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class ResourceManager <: RemoteDataLite {
@@ -76,7 +76,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getRawFd(path: String): RawFileDescriptor {
@@ -99,7 +99,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func closeRawFd(path: String): Unit {
@@ -120,7 +120,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getRawFileContent(path: String): Array<UInt8> {
@@ -148,7 +148,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001005 - Invalid relative path.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getRawFileList(path: String): Array<String> {
@@ -181,7 +181,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getColorByName(resName: String): UInt32 {
@@ -206,7 +206,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getColor(resource: AppResource): UInt32 {
@@ -231,7 +231,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getColor(resId: UInt32): UInt32 {
@@ -252,7 +252,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getBoolean(resId: UInt32): Bool {
@@ -273,7 +273,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getBoolean(resource: AppResource): Bool {
@@ -298,7 +298,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getBooleanByName(resName: String): Bool {
@@ -323,7 +323,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getNumber(resId: UInt32): NumberValueType {
@@ -346,7 +346,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getNumber(resource: AppResource): NumberValueType {
@@ -371,7 +371,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getNumberByName(resName: String): NumberValueType {
@@ -398,7 +398,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaByName(resName: String, density!: ?ScreenDensity = None): Array<UInt8> {
@@ -435,7 +435,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContent(resId: UInt32, density!: ?ScreenDensity = None): Array<UInt8> {
@@ -461,7 +461,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContent(resource: AppResource, density!: ?ScreenDensity = None): Array<UInt8> {
@@ -500,7 +500,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContentBase64(resId: UInt32, density!: ?ScreenDensity = None): String {
@@ -530,7 +530,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaContentBase64(resource: AppResource, density!: ?ScreenDensity = None): String {
@@ -562,7 +562,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001004 - No matching resource is found based on the resource name.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getMediaBase64ByName(resName: String, density!: ?ScreenDensity = None): String {
@@ -595,7 +595,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getPluralStringValue(resId: UInt32, num: Int64): String {
@@ -621,7 +621,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getPluralStringValue(resource: AppResource, num: Int64): String {
@@ -649,7 +649,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getPluralStringByName(resName: String, num: Int64): String {
@@ -676,7 +676,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringArrayValue(resId: UInt32): Array<String> {
@@ -696,7 +696,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringArrayValue(resource: AppResource): Array<String> {
@@ -718,7 +718,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringArrayByName(resName: String): Array<String> {
@@ -744,7 +744,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001007 - Failed to format the resource obtained based on the resource ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getString(resId: UInt32, args: Array<ArgsValueType>): String {
@@ -769,7 +769,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001007 - Failed to format the resource obtained based on the resource ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getString(resource: AppResource, args: Array<ArgsValueType>): String {
@@ -795,7 +795,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001008 - Failed to format the resource obtained based on the resource Name.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getStringByName(resName: String, args: Array<ArgsValueType>): String {
@@ -816,7 +816,7 @@ public class ResourceManager <: RemoteDataLite {
      * @returns { Configuration } the device configuration.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getConfiguration(): Configuration {
@@ -836,7 +836,7 @@ public class ResourceManager <: RemoteDataLite {
      * @returns { DeviceCapability } the device capability.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getDeviceCapability(): DeviceCapability {
@@ -854,7 +854,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001010 - Invalid overlay path.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func addResource(path: String): Unit {
@@ -873,7 +873,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 9001010 - Invalid overlay path.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func removeResource(path: String): Unit {
@@ -894,7 +894,7 @@ public class ResourceManager <: RemoteDataLite {
      * @throws { BusinessException } 401 - If the input parameter invalid. Possible causes: Incorrect parameter types.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public func getLocales(includeSystem!: Bool = false): Array<String> {

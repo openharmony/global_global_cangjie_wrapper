@@ -35,7 +35,7 @@ let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class Configuration {
@@ -44,7 +44,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var direction: Direction
@@ -53,7 +53,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var locale: String
@@ -63,7 +63,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var deviceType: DeviceType
@@ -72,7 +72,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var screenDensity: ScreenDensity
@@ -81,7 +81,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var colorMode: ColorMode
@@ -90,7 +90,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var mcc: UInt32
@@ -99,7 +99,7 @@ public class Configuration {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var mnc: UInt32
@@ -131,7 +131,7 @@ public class Configuration {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class DeviceCapability {
@@ -140,7 +140,7 @@ public class DeviceCapability {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var screenDensity: ScreenDensity
@@ -149,7 +149,7 @@ public class DeviceCapability {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var deviceType: DeviceType
@@ -168,7 +168,7 @@ public class DeviceCapability {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public enum ColorMode {
@@ -177,7 +177,7 @@ public enum ColorMode {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     Dark
@@ -186,7 +186,7 @@ public enum ColorMode {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     Light
@@ -207,7 +207,7 @@ public enum ColorMode {
  * export enum ScreenDensity
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public enum ScreenDensity {
@@ -216,7 +216,7 @@ public enum ScreenDensity {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     ScreenSdpi
@@ -225,7 +225,7 @@ public enum ScreenDensity {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     ScreenMdpi
@@ -234,7 +234,7 @@ public enum ScreenDensity {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     ScreenLdpi
@@ -243,7 +243,7 @@ public enum ScreenDensity {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     ScreenXldpi
@@ -252,7 +252,7 @@ public enum ScreenDensity {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     ScreenXxldpi
@@ -261,7 +261,7 @@ public enum ScreenDensity {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     ScreenXxxldpi
@@ -303,7 +303,7 @@ public enum ScreenDensity {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public enum DeviceType {
@@ -312,7 +312,7 @@ public enum DeviceType {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceTypePhone
@@ -321,7 +321,7 @@ public enum DeviceType {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceTypeTablet
@@ -330,7 +330,7 @@ public enum DeviceType {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceTypeCar
@@ -339,7 +339,7 @@ public enum DeviceType {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceTypePc
@@ -348,7 +348,7 @@ public enum DeviceType {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceTypeTv
@@ -357,7 +357,7 @@ public enum DeviceType {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceTypeWearable
@@ -366,7 +366,7 @@ public enum DeviceType {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DeviceType2In1
@@ -394,7 +394,7 @@ public enum DeviceType {
  *
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public enum Direction {
@@ -403,7 +403,7 @@ public enum Direction {
      *
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DirectionVertical
@@ -412,7 +412,7 @@ public enum Direction {
      *
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     DirectionHorizontal
@@ -434,7 +434,7 @@ public enum Direction {
  * for some API returns two type : Int32 Float32
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public enum NumberValueType {
@@ -442,7 +442,7 @@ public enum NumberValueType {
      * Represents Int32.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     Int32Value(Int32)
@@ -450,7 +450,7 @@ public enum NumberValueType {
      * Represents Float32.
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     Float32Value(Float32)
@@ -461,7 +461,7 @@ public enum NumberValueType {
  * For the formatting parameter using.
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public enum ArgsValueType {
@@ -469,7 +469,7 @@ public enum ArgsValueType {
      * Formats %d.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     Int32Value(Int32)
@@ -477,7 +477,7 @@ public enum ArgsValueType {
      * Formats %f.
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     Float32Value(Float32)
@@ -485,7 +485,7 @@ public enum ArgsValueType {
      * Formats %s.
      */
     | @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     StringValue(String)

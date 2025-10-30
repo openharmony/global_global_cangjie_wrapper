@@ -27,7 +27,7 @@ foreign {
  * Provides system functions.
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.I18n"
 ]
 public class System {
@@ -39,7 +39,7 @@ public class System {
      * @returns { String } Returns the preferred language of the application.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public static func getAppPreferredLanguage(): String {
