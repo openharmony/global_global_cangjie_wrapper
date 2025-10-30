@@ -17,8 +17,8 @@
 
 package ohos.resource
 
-import ohos.base.*
-import ohos.encoding.json.*
+import ohos.base.{ExternalString, VectorUInt32Handle, Color, VectorStringHandle, Length, LengthProp, LengthUnit}
+import ohos.encoding.json.{JsonArray, JsonInt, JsonString, JsonFloat}
 import ohos.labels.APILevel
 import ohos.business_exception.BusinessException
 

@@ -17,8 +17,7 @@
 
 package ohos.raw_file_descriptor
 
-import ohos.ffi.*
-import ohos.labels.*
+import ohos.labels.APILevel
 
 /**
  * Contains rawFile descriptor information.
