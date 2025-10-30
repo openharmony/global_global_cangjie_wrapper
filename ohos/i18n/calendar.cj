@@ -68,7 +68,7 @@ foreign {
  * @returns { Calendar } Calendar object
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.I18n"
 ]
 public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Calendar {
@@ -90,7 +90,7 @@ public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Ca
  * Provides the API for accessing Calendar name, time and date related information.
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.I18n"
 ]
 public class Calendar <: RemoteDataLite {
@@ -109,7 +109,7 @@ public class Calendar <: RemoteDataLite {
      *                          Unix epoch.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setTime(time: Float64): Unit {
@@ -129,7 +129,7 @@ public class Calendar <: RemoteDataLite {
      * @param { Int32 } second - Second to set. The default value is the current system time.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func set(year: Int32, month: Int32, date: Int32, hour!: ?Int32 = None, minute!: ?Int32 = None, second!: ?Int32 = None): Unit {
@@ -161,7 +161,7 @@ public class Calendar <: RemoteDataLite {
      * @param { String } timezone - Valid time zone ID, for example, Asia/Shanghai.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setTimeZone(timeZone: String): Unit {
@@ -178,7 +178,7 @@ public class Calendar <: RemoteDataLite {
      * @returns { String } Time zone ID.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getTimeZone(): String {
@@ -196,7 +196,7 @@ public class Calendar <: RemoteDataLite {
      * @returns { Int32 } First day of a week. The value 1 indicates Sunday, and the value 7 indicates Saturday.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getFirstDayOfWeek(): Int32 {
@@ -211,7 +211,7 @@ public class Calendar <: RemoteDataLite {
      * @param { Int32 } value - Start day of a week. The value 1 indicates Sunday, and the value 7 indicates Saturday.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setFirstDayOfWeek(value: Int32): Unit {
@@ -226,7 +226,7 @@ public class Calendar <: RemoteDataLite {
      * @returns { Int32 } Minimum number of days in the first week of a year.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getMinimalDaysInFirstWeek(): Int32 {
@@ -241,7 +241,7 @@ public class Calendar <: RemoteDataLite {
      * @param { Int32 } value - Minimum number of days in the first week of a year.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func setMinimalDaysInFirstWeek(value: Int32): Unit {
@@ -258,7 +258,7 @@ public class Calendar <: RemoteDataLite {
      *                     current Calendar object is 1990, get('year') returns 1990.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func get(field: String): Int32 {
@@ -278,7 +278,7 @@ public class Calendar <: RemoteDataLite {
      *                     Buddhist Calendar if the locale is en-US.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getDisplayName(locale: String): String {
@@ -305,7 +305,7 @@ public class Calendar <: RemoteDataLite {
      * @throws { BusinessException } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func add(field: String, amount: Int32): Unit {
@@ -327,7 +327,7 @@ public class Calendar <: RemoteDataLite {
      *                     Unix epoch.
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     public func getTimeInMillis(): Float64 {
