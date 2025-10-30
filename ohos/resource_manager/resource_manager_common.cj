@@ -143,7 +143,7 @@ public class DeviceCapability {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let screenDensity: ScreenDensity
+    public var screenDensity: ScreenDensity
     /**
      * Indicates the type of the current device.
      *
@@ -152,7 +152,7 @@ public class DeviceCapability {
         22,
         syscap: "SystemCapability.Global.ResourceManager"
     ]
-    public let deviceType: DeviceType
+    public var deviceType: DeviceType
 
     /**
      * DeviceCapability constructor.
