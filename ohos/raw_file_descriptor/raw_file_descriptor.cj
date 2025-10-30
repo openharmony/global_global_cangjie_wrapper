@@ -23,7 +23,7 @@ import ohos.labels.APILevel
  * Contains rawFile descriptor information.
  */
 @!APILevel[
-    22,
+    since: "22",
     syscap: "SystemCapability.Global.ResourceManager"
 ]
 public class RawFileDescriptor {
@@ -31,7 +31,7 @@ public class RawFileDescriptor {
      * rawfile descriptor
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var fd: Int32
@@ -39,7 +39,7 @@ public class RawFileDescriptor {
      * the offset from where the raw file starts in the HAP
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var offset: Int64
@@ -47,7 +47,7 @@ public class RawFileDescriptor {
      * the length of the raw file in the HAP
      */
     @!APILevel[
-        22,
+        since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
     public var length: Int64
