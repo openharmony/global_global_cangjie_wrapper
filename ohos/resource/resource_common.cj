@@ -156,6 +156,9 @@ protected func getResourceLength(res: AppResource): Length {
     }
 }
 
+/*
+ * @throws { BusinessException } 9001008 - Failed to format the resource obtained based on the resource Name.
+ */
 protected func parseResourceParams(paramsOpt: ?Array<Any>): String {
     let params = paramsOpt ?? []
     let jsonArr = JsonArray()

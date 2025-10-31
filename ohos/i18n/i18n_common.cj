@@ -23,11 +23,9 @@ import std.collection.HashMap
 import ohos.labels.APILevel
 import ohos.business_exception.BusinessException
 
-const INVALID_PARAMETER = 890001i32
-let ERROR_CODE_MAP = HashMap<Int32, String>(
-    [(INVALID_PARAMETER, "Invalid parameter. Possible causes: Parameter verification failed.")])
-
 func getErrorMsg(code: Int32): String {
+    static let ERROR_CODE_MAP = HashMap<Int32, String>(
+        [(890001, "Invalid parameter. Possible causes: Parameter verification failed.")])
     if (let Some(v) <- getUniversalErrorMsg(code)) {
         return v
     } else if (ERROR_CODE_MAP.contains(code)) {
@@ -157,7 +155,7 @@ public enum CalendarType {
             case IslamicUmalqura => "islamic_umalqura"
             case Japanese => "japanese"
             case Persian => "persian"
-            case _ => throw BusinessException(INVALID_PARAMETER, "Invalid parameter. Possible causes: Parameter verification failed.")
+            case _ => throw BusinessException(890001, "Invalid parameter. Possible causes: Parameter verification failed.")
         }
     }
 }
