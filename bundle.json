@@ -72,6 +72,9 @@
         },
         {
           "name": "//base/global/global_cangjie_wrapper/ohos/i18n:ohos.i18n"
+        },
+        {
+          "name": "//base/global/global_cangjie_wrapper/ohos/raw_file_descriptor:ohos.raw_file_descriptor"
         }
       ],
       "test": []
