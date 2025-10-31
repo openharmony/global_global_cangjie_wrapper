@@ -23,7 +23,6 @@ import ohos.hilog.HilogChannel
 import ohos.business_exception.BusinessException
 
 type StageContext = CPointer<Unit>
-const ESCAPE_CHARACTER: Rune = r'%'
 const RAWFILE_TYPE: Int32 = 30000
 const HAR_TYPE = "har"
 const DEFAULT_HAR_BUNDLE_NAME = "__harDefaultBundleName__"
@@ -517,6 +516,7 @@ func formatString(str: String, args: Array<ArgsValueType>) {
     }
     let runeArr = str.toRuneArray()
     let sb = StringBuilder()
+    const ESCAPE_CHARACTER: Rune = r'%'
     var signIndex = runeArr.find(ESCAPE_CHARACTER, 0)
     var nonplaceholderStart = 0
     var countPlaceholder = 0
@@ -542,7 +542,7 @@ func formatString(str: String, args: Array<ArgsValueType>) {
         // valid input list: %d %f %s, format it
         sb.append(runeArr.slice(nonplaceholderStart, nonplaceholderSize))
         if (countPlaceholder >= args.size || !args[countPlaceholder].shouldFormat(rune)) {
-            throw BusinessException(ERROR_CODE_RES_ID_FORMAT_ERROR, "Resource manager: parameters error!")
+            throw BusinessException(ERROR_CODE_RES_ID_FORMAT_ERROR, getErrorMsg(ERROR_CODE_RES_ID_FORMAT_ERROR))
         }
         sb.append(args[countPlaceholder].toString())
         signIndex++
@@ -551,7 +551,7 @@ func formatString(str: String, args: Array<ArgsValueType>) {
         signIndex = runeArr.find(ESCAPE_CHARACTER, signIndex)
     }
     if (countPlaceholder != args.size) {
-        throw BusinessException(ERROR_CODE_RES_ID_FORMAT_ERROR, "Resource manager: extra parameter!")
+        throw BusinessException(ERROR_CODE_RES_ID_FORMAT_ERROR, getErrorMsg(ERROR_CODE_RES_ID_FORMAT_ERROR))
     }
     sb.append(runeArr.slice(nonplaceholderStart, runeArr.size - nonplaceholderStart))
     return sb.toString()
