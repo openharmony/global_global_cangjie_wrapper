@@ -23,9 +23,10 @@ import std.collection.HashMap
 import ohos.labels.APILevel
 import ohos.business_exception.BusinessException
 
+let ERROR_CODE_MAP = HashMap<Int32, String>(
+    [(890001, "Invalid parameter. Possible causes: Parameter verification failed.")])
+
 func getErrorMsg(code: Int32): String {
-    static let ERROR_CODE_MAP = HashMap<Int32, String>(
-        [(890001, "Invalid parameter. Possible causes: Parameter verification failed.")])
     if (let Some(v) <- getUniversalErrorMsg(code)) {
         return v
     } else if (ERROR_CODE_MAP.contains(code)) {

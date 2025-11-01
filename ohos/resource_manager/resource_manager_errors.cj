@@ -38,21 +38,21 @@ func throwIfNull(ptr: CString): Unit {
     }
 }
 
+let ERROR_CODE_MAP = HashMap<Int32, String>(
+    [
+        (9001001, "Invalid resource ID."),
+        (9001002, "No matching resource is found based on the resource ID."),
+        (9001003, "Invalid resource name."),
+        (9001004, "No matching resource is found based on the resource name."),
+        (9001005, "Invalid relative path."),
+        (9001006, "The resource is referenced cyclically."),
+        (9001007, "Failed to format the resource obtained based on the resource ID."),
+        (9001008, "Failed to format the resource obtained based on the resource Name."),
+        (9001009, "Failed to access the system resource."),
+        (9001010, "Invalid overlay path.")
+    ]
+)
 func getErrorMsg(code: Int32): String {
-    static let ERROR_CODE_MAP = HashMap<Int32, String>(
-        [
-            (9001001, "Invalid resource ID."),
-            (9001002, "No matching resource is found based on the resource ID."),
-            (9001003, "Invalid resource name."),
-            (9001004, "No matching resource is found based on the resource name."),
-            (9001005, "Invalid relative path."),
-            (9001006, "The resource is referenced cyclically."),
-            (9001007, "Failed to format the resource obtained based on the resource ID."),
-            (9001008, "Failed to format the resource obtained based on the resource Name."),
-            (9001009, "Failed to access the system resource."),
-            (9001010, "Invalid overlay path.")
-        ]
-    )
     if (let Some(v) <- getUniversalErrorMsg(code)) {
         return v
     } else if (ERROR_CODE_MAP.contains(code)) {
