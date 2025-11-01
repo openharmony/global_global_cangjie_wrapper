@@ -510,6 +510,9 @@ public enum ArgsValueType {
     }
 }
 
+/**
+ * @throws { BusinessException } 9001007 - Failed to format string.
+ */
 func formatString(str: String, args: Array<ArgsValueType>) {
     if (str.size == 0 || args.size == 0) {
         return str
