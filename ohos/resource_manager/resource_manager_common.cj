@@ -23,10 +23,6 @@ import ohos.hilog.HilogChannel
 import ohos.business_exception.BusinessException
 
 type StageContext = CPointer<Unit>
-const RAWFILE_TYPE: Int32 = 30000
-const HAR_TYPE = "har"
-const DEFAULT_HAR_BUNDLE_NAME = "__harDefaultBundleName__"
-const DEFAULT_HAR_MODULE_NAME = "__harDefaultModuleName__"
 let RES_LOG = HilogChannel(0, 0xD001E00, "CJ-ResourceManager")
 
 /**

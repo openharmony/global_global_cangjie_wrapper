@@ -19,8 +19,9 @@ package ohos.resource
 
 import ohos.base.{ExternalString, VectorUInt32Handle, Color, VectorStringHandle, Length, LengthProp, LengthUnit}
 import ohos.encoding.json.{JsonArray, JsonInt, JsonString, JsonFloat}
-import ohos.labels.APILevel
+import ohos.labels.{APILevel, Hide}
 import ohos.business_exception.BusinessException
+import std.collection.ArrayList
 
 @C
 struct NativeDimension {
@@ -83,16 +84,24 @@ foreign {
 }
 
 let UNKNOWN_RESOURCE_TYPE: Int32 = -1
+const RAWFILE_TYPE: Int32 = 30000
+const HAR_TYPE = "har"
+const DEFAULT_HAR_BUNDLE_NAME = "__harDefaultBundleName__"
+const DEFAULT_HAR_MODULE_NAME = "__harDefaultModuleName__"
 
 protected func getResourceString(res: AppResource): String {
     var resStr: String = ""
+    var id = Int32(res.id)
+    if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
+        id = -1
+    }
     unsafe {
         try (bundleName = LibC.mallocCString(res.bundleName).asResource(),
             moduleName = LibC.mallocCString(res.moduleName).asResource(),
             paramsStr = LibC.mallocCString(parseResourceParams(res.params)).asResource()) {
             let resType = res.resType ?? UNKNOWN_RESOURCE_TYPE
             let resCstr = FFIGetResourceString(
-                NativeResourceObject(bundleName.value, moduleName.value, Int32(res.id), resType, paramsStr.value))
+                NativeResourceObject(bundleName.value, moduleName.value, id, resType, paramsStr.value))
             resStr = resCstr.toString()
             resCstr.free()
         }
@@ -102,13 +111,17 @@ protected func getResourceString(res: AppResource): String {
 
 protected func getResourceMedia(res: AppResource): String {
     var resStr: String = ""
+    var id = Int32(res.id)
+    if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
+        id = -1
+    }
     unsafe {
         try (bundleName = LibC.mallocCString(res.bundleName).asResource(),
             moduleName = LibC.mallocCString(res.moduleName).asResource(),
             paramsStr = LibC.mallocCString(parseResourceParams(res.params)).asResource()) {
             let resType = res.resType ?? UNKNOWN_RESOURCE_TYPE
             let resCstr = FFIGetResourceMedia(
-                NativeResourceObject(bundleName.value, moduleName.value, Int32(res.id), resType, paramsStr.value))
+                NativeResourceObject(bundleName.value, moduleName.value, id, resType, paramsStr.value))
             resStr = resCstr.toString()
             resCstr.free()
         }
@@ -117,6 +130,11 @@ protected func getResourceMedia(res: AppResource): String {
 }
 
 protected func getResourceColor(res: AppResource): Color {
+    var resStr: String = ""
+    var id = Int32(res.id)
+    if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
+        id = -1
+    }
     var color: Color = Color(0x00000000)
     unsafe {
         try (bundleName = LibC.mallocCString(res.bundleName).asResource(),
@@ -124,7 +142,7 @@ protected func getResourceColor(res: AppResource): Color {
             paramsStr = LibC.mallocCString(parseResourceParams(res.params)).asResource()) {
             let resType = res.resType ?? UNKNOWN_RESOURCE_TYPE
             let colorInt = FFIGetResourceColor(
-                NativeResourceObject(bundleName.value, moduleName.value, Int32(res.id), resType, paramsStr.value))
+                NativeResourceObject(bundleName.value, moduleName.value, id, resType, paramsStr.value))
             color = Color(colorInt)
         }
         color
@@ -133,13 +151,18 @@ protected func getResourceColor(res: AppResource): Color {
 
 protected func getResourceLength(res: AppResource): Length {
     var dimension: NativeDimension = NativeDimension(0.0, 0)
+    var resStr: String = ""
+    var id = Int32(res.id)
+    if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
+        id = -1
+    }
     unsafe {
         try (bundleName = LibC.mallocCString(res.bundleName).asResource(),
             moduleName = LibC.mallocCString(res.moduleName).asResource(),
             paramsStr = LibC.mallocCString(parseResourceParams(res.params)).asResource()) {
             let resType = res.resType ?? UNKNOWN_RESOURCE_TYPE
             dimension = FFIGetResourceDimension(
-                NativeResourceObject(bundleName.value, moduleName.value, Int32(res.id), resType, paramsStr.value))
+                NativeResourceObject(bundleName.value, moduleName.value, id, resType, paramsStr.value))
         }
         var value = dimension.value
         let unitType = LengthUnit.parse(dimension.unit)
@@ -174,4 +197,31 @@ protected func parseResourceParams(paramsOpt: ?Array<Any>): String {
         }
     }
     return jsonArr.toJsonString()
+}
+
+@!Hide
+public func __GenerateResource__(
+    bundleName: String,
+    moduleType: String,
+    moduleName: String,
+    resId: UInt32,
+    resStr: String,
+    params: Array<Any>,
+    resType: Int32
+): AppResource {
+    if (moduleType == HAR_TYPE) {
+        let paramsArr: ArrayList<Any> = ArrayList<Any>([resStr])
+        paramsArr.add(all: params)
+        return AppResource(
+            DEFAULT_HAR_BUNDLE_NAME,
+            DEFAULT_HAR_MODULE_NAME,
+            0,
+            params: paramsArr.toArray(),
+            resType: resType
+        )
+    } else if (resType == RAWFILE_TYPE) {
+        return AppResource(bundleName, moduleName, resId, params: [resStr], resType: resType)
+    } else {
+        return AppResource(bundleName, moduleName, resId, params: params, resType: resType)
+    }
 }
