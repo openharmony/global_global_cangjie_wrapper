@@ -30,6 +30,7 @@ import ohos.base.*
 import ohos.business_exception.*
 import ohos.resource_manager.ResourceManager
 import ohos.hilog.Hilog
+import ohos.resource.*
 
 const RESID_INVALID: Int32 = 9001001
 
