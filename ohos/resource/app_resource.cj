@@ -20,6 +20,7 @@ package ohos.resource
 import ohos.base.{Length, ResourceColor, ResourceStr}
 import ohos.labels.APILevel
 import std.deriving.Derive
+import ohos.business_exception.BusinessException
 
 /**
  * Contains resource descriptor information.
@@ -112,6 +113,9 @@ protected struct CResource {
     protected let moduleName: CString
     protected let resId: UInt32
 
+    /**
+    * @throws { BusinessException } 9001001 - Invalid resource ID.
+    */
     protected init(resource: AppResource) {
         unsafe {
             this.bundleName = LibC.mallocCString(resource.bundleName)
@@ -119,7 +123,7 @@ protected struct CResource {
                 this.moduleName = LibC.mallocCString(resource.moduleName)
             } catch (e: Exception) {
                 LibC.free(this.bundleName)
-                throw e
+                throw BusinessException(9001001, "Invalid resource ID.")
             }
         }
         this.resId = resource.id
