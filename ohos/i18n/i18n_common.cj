@@ -52,90 +52,101 @@ public enum CalendarType {
         syscap: "SystemCapability.Global.I18n"
     ]
     Buddhist
+    |
     /**
      * chinese calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Chinese
+    |
     /**
      * coptic calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Coptic
+    |
     /**
      * ethiopic calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Ethiopic
+    |
     /**
      * hebrew calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Hebrew
+    |
     /**
      * gregory calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Gregory
+    |
     /**
      * indian calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Indian
+    |
     /**
      * islamic_civil calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     IslamicCivil
+    |
     /**
      * islamic_tbla calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     IslamicTbla
+    |
     /**
      * islamic_umalqura calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     IslamicUmalqura
+    |
     /**
      * japanese calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
     Japanese
+    |
     /**
      * persian calendar type
      */
-    | @!APILevel[
+    @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.I18n"
     ]
