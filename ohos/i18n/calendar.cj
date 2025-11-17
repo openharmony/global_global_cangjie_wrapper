@@ -63,7 +63,10 @@ foreign {
  *
  * @param { String } locale - Locale ID, which consists of the language, script, and country/region,
  *                            for example, zh-Hans-CN.
- * @param { ?CalendarType } calendarType - Calendar. For details about the meanings and application scenarios of
+ * @param { ?CalendarType } [calendarType] - Calendar type. The value can be: "Buddhist", "Chinese", "Coptic", "Ethiopic",
+ *                            "Hebrew", "Gregory", "Gregory", "IslamicCivil", "IslamicTbla",
+ *                            "IslamicUmalqura", "Japanese", or "Persian". The default value is the default
+ *                            calendar of the locale. For details about the meanings and application scenarios of
  *                            different values, see Calendar Setting.
  * @returns { Calendar } Calendar object
  */
@@ -124,9 +127,9 @@ public class Calendar <: RemoteDataLite {
      * @param { Int32 } year - Year to set.
      * @param { Int32 } month - Month to set. Note: The month starts from 0. For example, 0 indicates January.
      * @param { Int32 } date - Day to set.
-     * @param { Int32 } hour - Hour to set. The default value is the current system time.
-     * @param { Int32 } minute - Minute to set. The default value is the current system time.
-     * @param { Int32 } second - Second to set. The default value is the current system time.
+     * @param { ?Int32 } [hour] - Hour to set. The default value is the current system time.
+     * @param { ?Int32 } [minute] - Minute to set. The default value is the current system time.
+     * @param { ?Int32 } [second] - Second to set. The default value is the current system time.
      */
     @!APILevel[
         since: "22",
@@ -158,7 +161,7 @@ public class Calendar <: RemoteDataLite {
     /**
      * Sets the time zone of this Calendar object.
      *
-     * @param { String } timezone - Valid time zone ID, for example, Asia/Shanghai.
+     * @param { String } timeZone - Valid time zone ID, for example, Asia/Shanghai.
      */
     @!APILevel[
         since: "22",
@@ -300,13 +303,12 @@ public class Calendar <: RemoteDataLite {
      *                           week_of_month, date, day_of_year, day_of_week, day_of_week_in_month, hour,
      *                           hour_of_day, minute, second, millisecond. For details about the values, see get.
      * @param { Int32 } amount - Addition or subtraction amount.
-     * @throws { BusinessException } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
      * @throws { BusinessException } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      */
     @!APILevel[
         since: "22",
-        syscap: "SystemCapability.Global.I18n"
+        syscap: "SystemCapability.Global.I18n",
+        throwexception: true
     ]
     public func add(field: String, amount: Int32): Unit {
         unsafe {
