@@ -75,6 +75,12 @@
         },
         {
           "name": "//base/global/global_cangjie_wrapper/ohos/raw_file_descriptor:ohos.raw_file_descriptor"
+        },
+        {
+          "name": "//base/global/global_cangjie_wrapper:copy_sdk_global_cangjie_libs"
+        },
+        {
+          "name": "//base/global/global_cangjie_wrapper:copy_sdk_global_cangjie_libs_kit"
         }
       ],
       "test": []
