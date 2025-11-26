@@ -149,6 +149,7 @@ protected func getResourceColor(res: AppResource): Color {
     }
 }
 
+@OverflowWrapping
 protected func getResourceLength(res: AppResource): Length {
     var dimension: NativeDimension = NativeDimension(0.0, 0)
     var resStr: String = ""
