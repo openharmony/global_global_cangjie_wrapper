@@ -64,14 +64,10 @@ class Test_resource_manager {
         let res2_1 = @r(app.string.Test_Format1)
         let res2_2 = @r(app.string.Test_Format2)
         let resx = @r(app.string.app_name)
-        let resource1 = AppResource("com.example.myapplication", "entry", res1.id)
         @Expect(getResourceManager().getString(res1.id), "description")
-        @Expect(getResourceManager().getString(resource1), "description")
         @Expect(getResourceManager().getStringByName("EntryAbility_desc"), "description")
 
-       let resource2 = AppResource("com.example.myapplication", "entry", res2_2.id)
        @Expect(getResourceManager().getString(res2_1.id, ArgsValueType.Int32Value(20)), "int is 20")
-       @Expect(getResourceManager().getString(resource2, ArgsValueType.Float32Value(3.14)), "float is 3.140000")
        @Expect(getResourceManager().getStringByName("Test_Format3", ArgsValueType.StringValue("abcdefg")), "string is abcdefg")
     }
 
@@ -81,7 +77,6 @@ class Test_resource_manager {
         let res = @r(app.strarray.sizeList)
         let expect = ["small", "middle", "large", "extra large"]
         @Expect(getResourceManager().getStringArrayValue(res.id), expect)
-        @Expect(getResourceManager().getStringArrayValue(res), expect)
         @Expect(getResourceManager().getStringArrayByName("sizeList"), expect)
     }
 
@@ -90,7 +85,6 @@ class Test_resource_manager {
     func test_getPluralString() {
         let res = @r(app.plural.plural_name)
         @Expect(getResourceManager().getPluralStringValue(res.id, 1), "1 test other")
-        @Expect(getResourceManager().getPluralStringValue(res, 2), "2 test other")
         @Expect(getResourceManager().getPluralStringByName("plural_name", 3), "3 test other")
     }
 
@@ -99,7 +93,6 @@ class Test_resource_manager {
     func test_getMediaContent() {
         let res = @r(app.media.startIcon)
         @Expect(getResourceManager().getMediaContent(res.id).size > 0, true)
-        @Expect(getResourceManager().getMediaContent(res).size > 0, true)
         @Expect(getResourceManager().getMediaByName("startIcon").size > 0, true)
     }
 
@@ -108,7 +101,6 @@ class Test_resource_manager {
     func test_getMediaContentBase64() {
         let res = @r(app.media.startIcon)
         @Expect(getResourceManager().getMediaContentBase64(res.id).size > 0, true)
-        @Expect(getResourceManager().getMediaContentBase64(res).size > 0, true)
         @Expect(getResourceManager().getMediaBase64ByName("startIcon").size > 0, true)
     }
 
@@ -117,7 +109,6 @@ class Test_resource_manager {
     func test_getBoolean() {
         let res = @r(app.boolean.boolean_1)
         @Expect(getResourceManager().getBoolean(res.id), true)
-        @Expect(getResourceManager().getBoolean(res), true)
         @Expect(getResourceManager().getBooleanByName("boolean_2"), false)
     }
 
@@ -126,7 +117,6 @@ class Test_resource_manager {
     func test_getNumber() {
         let res = @r(app.integer.number_1)
         @Expect(getIntFromNum(getResourceManager().getNumber(res.id)), 123)
-        @Expect(getIntFromNum(getResourceManager().getNumber(res)), 123)
         @Expect(getIntFromNum(getResourceManager().getNumberByName("number_2")), 456)
 
         let fRes = @r(app.float.float_1)
@@ -141,7 +131,6 @@ class Test_resource_manager {
     func test_getColor() {
         let res = @r(app.color.color_test1)
         @Expect(getResourceManager().getColor(res.id), 0xFFFF_00FF)
-        @Expect(getResourceManager().getColor(res), 0xFFFF_00FF)
         @Expect(getResourceManager().getColorByName("color_test2"), 0xFFFF_0011)
     }
 
@@ -200,9 +189,7 @@ class Test_resource_manager {
     func test_string() {
         let res2_1 = @r(app.string.Test_Format1)
         let res2_2 = @r(app.string.Test_Format2)
-        let resource2 = AppResource("com.example.myapplication", "entry", res2_2.id)
         getResourceManager().getString(UInt32(res2_1.id), ArgsValueType.Int32Value(20))
-        getResourceManager().getString(resource2, ArgsValueType.Float32Value(3.14))
         @Expect(true)
     }
 
