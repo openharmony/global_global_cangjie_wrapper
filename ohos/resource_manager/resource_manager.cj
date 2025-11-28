@@ -199,32 +199,6 @@ public class ResourceManager <: RemoteDataLite {
     }
 
     /**
-     * Obtains the color resource corresponding to the specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @returns { UInt32 } Indicates the integer reference value representing the color data.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true,
-        workerthread: true
-    ]
-    public func getColor(resource: AppResource): UInt32 {
-        unsafe {
-            var data: UInt32 = 0
-            let res = CResource(resource)
-            let retCode = CJ_GetColorByResource(getID(), res, inout data)
-            res.free()
-            throwIfNotSuccess(retCode, getErrorMsg(retCode))
-            data
-        }
-    }
-
-    /**
      * Obtains the color resource corresponding to the specified resource ID.
      *
      * @param { UInt32 } resId - Indicates the resource ID.
@@ -265,31 +239,6 @@ public class ResourceManager <: RemoteDataLite {
         let retCode = unsafe { CJ_GetBoolean(getID(), resId, inout data) }
         throwIfNotSuccess(retCode, getErrorMsg(retCode))
         data
-    }
-
-    /**
-     * Obtains the boolean result with a specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @returns { Bool } The boolean resource corresponding to the resource object.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true
-    ]
-    public func getBoolean(resource: AppResource): Bool {
-        unsafe {
-            var data = true
-            let res = CResource(resource)
-            let retCode = CJ_GetBooleanByResource(getID(), res, inout data)
-            res.free()
-            throwIfNotSuccess(retCode, getErrorMsg(retCode))
-            data
-        }
     }
 
     /**
@@ -335,31 +284,6 @@ public class ResourceManager <: RemoteDataLite {
         unsafe {
             var data = RetGetNumber(true, 0, 0.0)
             let retCode = CJ_GetNumber(getID(), resId, inout data)
-            throwIfNotSuccess(retCode, getErrorMsg(retCode))
-            data.toNumber()
-        }
-    }
-
-    /**
-     * Obtains the number result with a specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @returns { NumberValueType } The number resource corresponding to the resource object.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true
-    ]
-    public func getNumber(resource: AppResource): NumberValueType {
-        unsafe {
-            var data = RetGetNumber(true, 0, 0.0)
-            let res = CResource(resource)
-            let retCode = CJ_GetNumberByResource(getID(), res, inout data)
-            res.free()
             throwIfNotSuccess(retCode, getErrorMsg(retCode))
             data.toNumber()
         }
@@ -453,34 +377,6 @@ public class ResourceManager <: RemoteDataLite {
         getMediaContentResult(ret)
     }
 
-    /**
-     * Obtains the content of the specified screen density media file corresponding to a specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @param { ?ScreenDensity } [density] - The optional parameter ScreenDensity ScreenDensity, A value of None means
-     *                to use the density of current system dpi.
-     * @returns { Array<UInt8> } The content of the specified screen density media file corresponding to the specified resource object.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true,
-        workerthread: true
-    ]
-    public func getMediaContent(resource: AppResource, density!: ?ScreenDensity = None): Array<UInt8> {
-        let res = CResource(resource)
-        let cDensity: UInt32 = if (let Some(v) <- density) {
-            v.getValue()
-        } else {
-            0
-        }
-        let ret = unsafe { CJ_GetMediaContentByResource(getID(), res, cDensity) }
-        res.free()
-        getMediaContentResult(ret)
-    }
-
     func getMediaContentResult(ret: RetDataCArrUI8): Array<UInt8> {
         throwIfNotSuccess(ret.code, getErrorMsg(ret.code))
         let size = ret.data.size
@@ -514,37 +410,6 @@ public class ResourceManager <: RemoteDataLite {
             0
         }
         let retData = unsafe { CJ_GetMediaContentBase64(getID(), resId, cDensity) }
-        throwIfNotSuccess(retData.code, getErrorMsg(retData.code))
-        throwIfNull(retData.data)
-        let ret = retData.data.toString()
-        unsafe { LibC.free(retData.data) }
-        return ret
-    }
-
-    /**
-     * Obtains the content of the specified screen density media file corresponding to the specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @param { ?ScreenDensity } [density] - The optional parameter ScreenDensity, A value of None means
-     *                to use the density of current system dpi.
-     * @returns { String } Indicates the obtained Base64 code of the media file.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true
-    ]
-    public func getMediaContentBase64(resource: AppResource, density!: ?ScreenDensity = None): String {
-        let cDensity: UInt32 = if (let Some(v) <- density) {
-            v.getValue()
-        } else {
-            0
-        }
-        let cResource = CResource(resource)
-        let retData = unsafe { CJ_GetMediaContentBase64ByResource(getID(), cResource, cDensity) }
-        cResource.free()
         throwIfNotSuccess(retData.code, getErrorMsg(retData.code))
         throwIfNull(retData.data)
         let ret = retData.data.toString()
@@ -611,35 +476,6 @@ public class ResourceManager <: RemoteDataLite {
     }
 
     /**
-     * Obtains the singular-plural character string represented by the resource object string corresponding to the
-     * specified number.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @param { Int64 } num - Indicates the number.
-     * @returns { String } The singular-plural character string represented by the ID string
-     *         corresponding to the specified number.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true,
-        workerthread: true
-    ]
-    public func getPluralStringValue(resource: AppResource, num: Int64): String {
-        let cResource = CResource(resource)
-        let retData = unsafe { CJ_GetPluralStringValueByResource(getID(), cResource, num) }
-        cResource.free()
-        throwIfNotSuccess(retData.code, getErrorMsg(retData.code))
-        throwIfNull(retData.data)
-        let ret = retData.data.toString()
-        unsafe { LibC.free(retData.data) }
-        return ret
-    }
-
-    /**
      * Obtains the singular-plural character string represented by the name string corresponding to
      * the specified number.
      *
@@ -691,28 +527,6 @@ public class ResourceManager <: RemoteDataLite {
     }
 
     /**
-     * Obtains the array of character strings corresponding to a specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @returns { Array<String> } The array of character strings corresponding to the specified resource object.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true
-    ]
-    public func getStringArrayValue(resource: AppResource): Array<String> {
-        let cResource = CResource(resource)
-        let retData = unsafe { CJ_GetStringArrayValueByResource(getID(), cResource) }
-        cResource.free()
-        throwIfNotSuccess(retData.code, getErrorMsg(retData.code))
-        return retData.getDataAndFree()
-    }
-
-    /**
      * Obtains the array of character strings corresponding to a specified resource name.
      *
      * @param { String } resName - Indicates the resource name.
@@ -756,32 +570,6 @@ public class ResourceManager <: RemoteDataLite {
         let retData = unsafe { CJ_GetString(getID(), resId) }
         throwIfNotSuccess(retData.code, getErrorMsg(retData.code))
         throwIfNull(retData.data)
-        let ret = retData.data.toString()
-        unsafe { LibC.free(retData.data) }
-        return formatString(ret, args)
-    }
-
-    /**
-     * Obtains string resources associated with a specified resource object.
-     *
-     * @param { AppResource } resource - Indicates the resource object.
-     * @param { Array<ArgsValueType> } args - Indicates the formatting string resource parameters.
-     * @returns { String } The character string corresponding to the resource object.
-     * @throws { BusinessException } 9001001 - Invalid resource ID.
-     * @throws { BusinessException } 9001002 - No matching resource is found based on the resource ID.
-     * @throws { BusinessException } 9001006 - The resource is referenced cyclically.
-     * @throws { BusinessException } 9001007 - Failed to format the resource obtained based on the resource ID.
-     */
-    @!APILevel[
-        since: "22",
-        syscap: "SystemCapability.Global.ResourceManager",
-        throwexception: true
-    ]
-    public func getString(resource: AppResource, args: Array<ArgsValueType>): String {
-        let cResource = CResource(resource)
-        let retData = unsafe { CJ_GetStringByResource(getID(), cResource) }
-        cResource.free()
-        throwIfNotSuccess(retData.code, getErrorMsg(retData.code))
         let ret = retData.data.toString()
         unsafe { LibC.free(retData.data) }
         return formatString(ret, args)
