@@ -37,10 +37,7 @@
   "component": {
     "name": "global_cangjie_wrapper",
     "subsystem": "global",
-    "syscap": [
-      "SystemCapability.Global.I18n",
-      "SystemCapability.Global.ResourceManager"
-    ],
+    "syscap": [],
     "features": [],
     "adapted_system_type": [
       "standard"
