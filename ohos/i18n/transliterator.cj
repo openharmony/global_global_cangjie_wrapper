@@ -74,14 +74,14 @@ public class Transliterator <: RemoteDataLite {
         syscap: "SystemCapability.Global.I18n"
     ]
     public func transform(text: String): String {
+        var result = ""
         unsafe {
-            var result = ""
             try (cText = LibC.mallocCString(text).asResource()) {
                 let cStr = FfiI18nTransliteratorTransform(getID(), cText.value)
                 result = cStr.toString()
                 LibC.free(cStr)
             }
-            return result
         }
+        return result
     }
 }
