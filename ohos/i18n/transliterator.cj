@@ -15,9 +15,8 @@
 
 package ohos.i18n
 
-import ohos.base.*
-import ohos.ffi.*
-import ohos.labels.*
+import ohos.ffi.{RemoteDataLite, CArrString, releaseFFIData}
+import ohos.labels.APILevel
 
 foreign {
     func FfiI18nTransliteratorConstructor(id: CString): Int64
