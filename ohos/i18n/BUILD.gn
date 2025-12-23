@@ -20,6 +20,7 @@ ohos_cangjie_shared_library("ohos.i18n") {
     "calendar.cj",
     "i18n_common.cj",
     "system.cj",
+    "transliterator.cj"
   ]
 
   cj_external_deps = [
