@@ -19,7 +19,6 @@ package ohos.resource
 
 import ohos.base.{Length, ResourceColor, ResourceStr}
 import ohos.labels.APILevel
-import std.deriving.Derive
 import ohos.business_exception.BusinessException
 
 /**
