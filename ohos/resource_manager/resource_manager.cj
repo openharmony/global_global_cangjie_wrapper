@@ -37,8 +37,6 @@ import ohos.business_exception.BusinessException
 public class ResourceManager <: RemoteDataLite {
     private static let RES_MGR_MAP = HashMap<UIntNative, ResourceManager>()
     private static let APP_MUTEX = Mutex()
-    private static let SYS_MUTEX = Mutex()
-    private static var sysResMgr = Option<ResourceManager>.None
 
     init(id: Int64) {
         super(id)

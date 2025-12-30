@@ -17,7 +17,7 @@
 
 package ohos.resource_manager
 
-import std.collection.{HashMap, ArrayList}
+import std.collection.HashMap
 import ohos.ffi.{INVALID_CODE, SUCCESS_CODE}
 import ohos.business_exception.{BusinessException, getUniversalErrorMsg}
 
