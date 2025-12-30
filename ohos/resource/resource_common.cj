@@ -19,7 +19,7 @@ package ohos.resource
 
 import ohos.base.{ExternalString, VectorUInt32Handle, Color, VectorStringHandle, Length, LengthProp, LengthUnit}
 import ohos.encoding.json.{JsonArray, JsonInt, JsonString, JsonFloat}
-import ohos.labels.{APILevel, Hide}
+import ohos.labels.Hide
 import ohos.business_exception.BusinessException
 import std.collection.ArrayList
 
@@ -130,7 +130,6 @@ protected func getResourceMedia(res: AppResource): String {
 }
 
 protected func getResourceColor(res: AppResource): Color {
-    var resStr: String = ""
     var id = Int32(res.id)
     if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
         id = -1
@@ -152,7 +151,6 @@ protected func getResourceColor(res: AppResource): Color {
 @OverflowWrapping
 protected func getResourceLength(res: AppResource): Length {
     var dimension: NativeDimension = NativeDimension(0.0, 0)
-    var resStr: String = ""
     var id = Int32(res.id)
     if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
         id = -1
