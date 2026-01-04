@@ -16,12 +16,17 @@
 import("//build/templates/cangjie/cjc.gni")
 
 ohos_cangjie_shared_library("ohos.resource_manager") {
-  sources = [
-    "resource_manager.cj",
-    "resource_manager_common.cj",
-    "resource_manager_errors.cj",
-    "resource_manager_ffi.cj",
-  ]
+  
+  if (is_mingw || is_mac){
+    sources = ["../../mock/ohos.resource_manager.cj"]
+  } else {
+    sources = [
+      "resource_manager.cj",
+      "resource_manager_common.cj",
+      "resource_manager_errors.cj",
+      "resource_manager_ffi.cj",
+    ]
+  }
 
   cj_deps = [
     "../raw_file_descriptor:ohos.raw_file_descriptor",
