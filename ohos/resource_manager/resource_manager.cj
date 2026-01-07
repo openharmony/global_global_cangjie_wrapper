@@ -21,11 +21,9 @@ public import ohos.raw_file_descriptor.RawFileDescriptor
 public import ohos.resource.AppResource
 import ohos.ffi.{RemoteDataLite, releaseFFIData, RetDataCArrUI8}
 import ohos.labels.APILevel
-import std.collection.{HashMap, ArrayList}
+import std.collection.HashMap
 import std.sync.Mutex
 import ohos.raw_file_descriptor.RetDataRawFileDescriptor
-import ohos.resource.CResource
-import ohos.business_exception.BusinessException
 
 /**
  * Provides the capability of accessing application resources.
