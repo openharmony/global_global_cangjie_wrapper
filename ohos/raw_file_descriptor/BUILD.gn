@@ -16,7 +16,12 @@
 import("//build/templates/cangjie/cjc.gni")
 
 ohos_cangjie_shared_library("ohos.raw_file_descriptor") {
-  sources = [ "raw_file_descriptor.cj" ]
+  
+  if (is_mingw || is_mac){
+    sources = ["../../mock/ohos.raw_file_descriptor.cj"]
+  } else {
+    sources = [ "raw_file_descriptor.cj" ]
+  }
 
   cj_external_deps = [
     "cangjie_ark_interop:ohos.ffi",
