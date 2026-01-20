@@ -17,14 +17,10 @@ import("//build/templates/cangjie/cjc.gni")
 
 ohos_cangjie_shared_library("ohos.resource") {
   
-  if (is_mingw || is_mac){
-    sources = ["../../mock/ohos.resource.cj"]
-  } else {
-    sources = [
-      "app_resource.cj",
-      "resource_common.cj",
-    ]
-  }
+  sources = [
+    "app_resource.cj",
+    "resource_common.cj",
+  ]
 
   cj_external_deps = [
     "arkui_cangjie_wrapper:ohos.base",
