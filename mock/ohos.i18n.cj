@@ -17,70 +17,113 @@ package ohos.i18n
 
 import ohos.labels.APILevel
 
-@!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+@!APILevel[
+    since: "22",
+    syscap: "SystemCapability.Global.I18n"
+]
 public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Calendar {
     return Calendar()
 }
 
-@!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+@!APILevel[
+    since: "22",
+    syscap: "SystemCapability.Global.I18n"
+]
 public class Calendar {
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func setTime(time: Float64): Unit {
         return ()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func set(year: Int32, month: Int32, date: Int32, hour!: ?Int32 = None, minute!: ?Int32 = None,
         second!: ?Int32 = None): Unit {
         return ()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func setTimeZone(timeZone: String): Unit {
         return ()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func getTimeZone(): String {
         return String()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func getFirstDayOfWeek(): Int32 {
         return 0
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func setFirstDayOfWeek(value: Int32): Unit {
         return ()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func getMinimalDaysInFirstWeek(): Int32 {
         return 0
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func setMinimalDaysInFirstWeek(value: Int32): Unit {
         return ()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func get(field: String): Int32 {
         return 0
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func getDisplayName(locale: String): String {
         return String()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n", throwexception: true]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n",
+        throwexception: true
+    ]
     public func add(field: String, amount: Int32): Unit {
         return ()
     }
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public func getTimeInMillis(): Float64 {
         return 0.0
     }
@@ -90,38 +133,94 @@ public class Calendar {
     }
 }
 
-@!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+@!APILevel[
+    since: "22",
+    syscap: "SystemCapability.Global.I18n"
+]
 public enum CalendarType {
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Buddhist
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Chinese
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Coptic
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Ethiopic
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Hebrew
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Gregory
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Indian
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     IslamicCivil
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     IslamicTbla
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     IslamicUmalqura
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Japanese
-    | @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    |
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     Persian
     | ...
 }
 
-@!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+@!APILevel[
+    since: "22",
+    syscap: "SystemCapability.Global.I18n"
+]
 public class System {
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.I18n"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.I18n"
+    ]
     public static func getAppPreferredLanguage(): String {
         return String()
     }
