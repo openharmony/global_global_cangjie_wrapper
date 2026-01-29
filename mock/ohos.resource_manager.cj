@@ -481,12 +481,14 @@ public enum NumberValueType {
     @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
-    ] Int32Value(Int32)
+    ]
+    Int32Value(Int32)
     |
     @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
+    Float32Value(Float32)
     | ...
 }
 
@@ -504,11 +506,13 @@ public enum ArgsValueType {
         since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
+    Float32Value(Float32)
     |
     @!APILevel[
         since: "22",
         syscap: "SystemCapability.Global.ResourceManager"
     ]
+    StringValue(String)
     | ...
 }
 
