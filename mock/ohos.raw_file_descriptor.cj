@@ -17,15 +17,27 @@ package ohos.raw_file_descriptor
 
 import ohos.labels.APILevel
 
-@!APILevel[since: "22", syscap: "SystemCapability.Global.ResourceManager"]
+@!APILevel[
+    since: "22",
+    syscap: "SystemCapability.Global.ResourceManager"
+]
 public class RawFileDescriptor {
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.ResourceManager"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
     public var fd: Int32
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.ResourceManager"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
     public var offset: Int64
 
-    @!APILevel[since: "22", syscap: "SystemCapability.Global.ResourceManager"]
+    @!APILevel[
+        since: "22",
+        syscap: "SystemCapability.Global.ResourceManager"
+    ]
     public var length: Int64
     
     public init() {
