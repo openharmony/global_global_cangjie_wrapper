@@ -9,7 +9,7 @@
             <filefilter name="defaultFilter" desc="File not to check">
                 <filteritem type="filename" name="*.png | *.jpg" desc="代码架构图片文件"/>
                 <filteritem type="filename" name="*.ics" desc="通用日历文件"/>
-                <filteritem type="filepath" name="global_global_cangjie_wrapper/test/resource_manager/test/entry/src/main/resources/rawfile/dir.*" desc="测试文件"/>    
+                <filteritem type="filepath" name="global_global_cangjie_wrapper/test/resource_manager/test/entry/src/main/resources/rawfile/dir/.*" desc="测试文件"/>    
             </filefilter>
         </filefilterlist>
         <licensematcherlist>
