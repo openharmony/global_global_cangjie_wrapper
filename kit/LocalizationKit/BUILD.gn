@@ -21,6 +21,7 @@ ohos_cangjie_shared_library("kit.LocalizationKit") {
 
   cj_deps = [
     "../../ohos/i18n:ohos.i18n",
+    "../../ohos/resource:ohos.resource",
     "../../ohos/resource_manager:ohos.resource_manager",
   ]
 
