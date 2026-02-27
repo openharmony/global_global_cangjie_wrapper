@@ -18,7 +18,6 @@
 package ohos.resource_manager
 
 import ohos.labels.APILevel
-import std.deriving.Derive
 import ohos.hilog.HilogChannel
 import ohos.business_exception.BusinessException
 

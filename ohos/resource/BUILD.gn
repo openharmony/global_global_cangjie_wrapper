@@ -16,6 +16,7 @@
 import("//build/templates/cangjie/cjc.gni")
 
 ohos_cangjie_shared_library("ohos.resource") {
+  
   sources = [
     "app_resource.cj",
     "resource_common.cj",

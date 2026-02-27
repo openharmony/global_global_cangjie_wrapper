@@ -21,11 +21,9 @@ public import ohos.raw_file_descriptor.RawFileDescriptor
 public import ohos.resource.AppResource
 import ohos.ffi.{RemoteDataLite, releaseFFIData, RetDataCArrUI8}
 import ohos.labels.APILevel
-import std.collection.{HashMap, ArrayList}
+import std.collection.HashMap
 import std.sync.Mutex
 import ohos.raw_file_descriptor.RetDataRawFileDescriptor
-import ohos.resource.CResource
-import ohos.business_exception.BusinessException
 
 /**
  * Provides the capability of accessing application resources.
@@ -37,8 +35,6 @@ import ohos.business_exception.BusinessException
 public class ResourceManager <: RemoteDataLite {
     private static let RES_MGR_MAP = HashMap<UIntNative, ResourceManager>()
     private static let APP_MUTEX = Mutex()
-    private static let SYS_MUTEX = Mutex()
-    private static var sysResMgr = Option<ResourceManager>.None
 
     init(id: Int64) {
         super(id)
