@@ -229,3 +229,25 @@ public class System {
         super()
     }
 }
+
+@!APILevel[
+    since: "24",
+    syscap: "SystemCapability.Global.I18n"
+]
+public class Transliterator {
+    @!APILevel[
+        since: "24",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public static func getInstance(id: String): Transliterator {
+        return Transliterator()
+    }
+
+    @!APILevel[
+        since: "24",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public func transform(text: String): String {
+        return String()
+    }
+}
