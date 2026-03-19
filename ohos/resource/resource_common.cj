@@ -89,6 +89,7 @@ const HAR_TYPE = "har"
 const DEFAULT_HAR_BUNDLE_NAME = "__harDefaultBundleName__"
 const DEFAULT_HAR_MODULE_NAME = "__harDefaultModuleName__"
 
+@OverflowWrapping
 protected func getResourceString(res: AppResource): String {
     var resStr: String = ""
     var id = Int32(res.id)
@@ -109,6 +110,7 @@ protected func getResourceString(res: AppResource): String {
     resStr
 }
 
+@OverflowWrapping
 protected func getResourceMedia(res: AppResource): String {
     var resStr: String = ""
     var id = Int32(res.id)
@@ -129,6 +131,7 @@ protected func getResourceMedia(res: AppResource): String {
     }
 }
 
+@OverflowWrapping
 protected func getResourceColor(res: AppResource): Color {
     var id = Int32(res.id)
     if (res.bundleName == DEFAULT_HAR_BUNDLE_NAME && res.moduleName == DEFAULT_HAR_MODULE_NAME) {
