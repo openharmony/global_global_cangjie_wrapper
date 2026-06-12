@@ -233,4 +233,80 @@ class Test_resource_manager {
         @Expect(config.mcc, 0)
         @Expect(config.mnc, 0)
     }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_ColorMode_parse(): Unit {
+        @Expect(ColorMode.parse(0), ColorMode.Dark)
+        @Expect(ColorMode.parse(1), ColorMode.Light)
+        
+        try {
+            ColorMode.parse(999)
+            @Expect(false)
+        } catch (e: BusinessException) {
+            @Expect(e.code, 401)
+        }
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_ScreenDensity_getValue(): Unit {
+        @Expect(ScreenDensity.ScreenSdpi.getValue(), 120)
+        @Expect(ScreenDensity.ScreenMdpi.getValue(), 160)
+        @Expect(ScreenDensity.ScreenLdpi.getValue(), 240)
+        @Expect(ScreenDensity.ScreenXldpi.getValue(), 320)
+        @Expect(ScreenDensity.ScreenXxldpi.getValue(), 480)
+        @Expect(ScreenDensity.ScreenXxxldpi.getValue(), 640)
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_ScreenDensity_parse(): Unit {
+        @Expect(ScreenDensity.parse(120), ScreenDensity.ScreenSdpi)
+        @Expect(ScreenDensity.parse(160), ScreenDensity.ScreenMdpi)
+        @Expect(ScreenDensity.parse(240), ScreenDensity.ScreenLdpi)
+        @Expect(ScreenDensity.parse(320), ScreenDensity.ScreenXldpi)
+        @Expect(ScreenDensity.parse(480), ScreenDensity.ScreenXxldpi)
+        @Expect(ScreenDensity.parse(640), ScreenDensity.ScreenXxxldpi)
+        
+        try {
+            ScreenDensity.parse(999)
+            @Expect(false)
+        } catch (e: BusinessException) {
+            @Expect(e.code, 401)
+        }
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_DeviceType_parse(): Unit {
+        @Expect(DeviceType.parse(0), DeviceType.DeviceTypePhone)
+        @Expect(DeviceType.parse(1), DeviceType.DeviceTypeTablet)
+        @Expect(DeviceType.parse(2), DeviceType.DeviceTypeCar)
+        @Expect(DeviceType.parse(3), DeviceType.DeviceTypePc)
+        @Expect(DeviceType.parse(4), DeviceType.DeviceTypeTv)
+        @Expect(DeviceType.parse(6), DeviceType.DeviceTypeWearable)
+        @Expect(DeviceType.parse(7), DeviceType.DeviceType2In1)
+        
+        try {
+            DeviceType.parse(999)
+            @Expect(false)
+        } catch (e: BusinessException) {
+            @Expect(e.code, 401)
+        }
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_Direction_parse(): Unit {
+        @Expect(Direction.parse(0), Direction.DirectionVertical)
+        @Expect(Direction.parse(1), Direction.DirectionHorizontal)
+        
+        try {
+            Direction.parse(999)
+            @Expect(false)
+        } catch (e: BusinessException) {
+            @Expect(e.code, 401)
+        }
+    }
 }
