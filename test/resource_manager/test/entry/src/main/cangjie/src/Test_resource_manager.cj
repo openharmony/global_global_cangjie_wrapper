@@ -283,7 +283,10 @@ class Test_resource_manager {
         @Expect(res.bundleName, "com.example.test")
         @Expect(res.moduleName, "entry")
         @Expect(res.id, 12345)
-        @Expect(res.params.size, 1)
+        match (res.params) {
+            case Some(arr) => @Expect(arr.size, 1)
+            case None => @Expect(false)
+        }
     }
 
     @TestCase
@@ -301,6 +304,9 @@ class Test_resource_manager {
         @Expect(res.bundleName, "com.example.test")
         @Expect(res.moduleName, "entry")
         @Expect(res.id, 12345)
-        @Expect(res.params.size, 3)
+         match (res.params) {
+            case Some(arr) => @Expect(arr.size, 3)
+            case None => @Expect(false)
+        }
     }
 }
