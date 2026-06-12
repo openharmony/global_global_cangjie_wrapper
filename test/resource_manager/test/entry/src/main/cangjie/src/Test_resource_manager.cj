@@ -250,4 +250,57 @@ class Test_resource_manager {
         @Expect(config.mcc, 0)
         @Expect(config.mnc, 0)
     }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_GenerateResource_HAR(): Unit {
+        let res = __GenerateResource__(
+            "com.example.test",
+            "har",
+            "entry",
+            12345,
+            "test_string",
+            [Int64(100), "param", Float64(3.14)],
+            0
+        )
+        @Expect(res.bundleName, "__harDefaultBundleName__")
+        @Expect(res.moduleName, "__harDefaultModuleName__")
+        @Expect(res.id, 0)
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_GenerateResource_RAWFILE(): Unit {
+        let res = __GenerateResource__(
+            "com.example.test",
+            "entry",
+            "entry",
+            12345,
+            "test.txt",
+            [],
+            30000
+        )
+        @Expect(res.bundleName, "com.example.test")
+        @Expect(res.moduleName, "entry")
+        @Expect(res.id, 12345)
+        @Expect(res.params.size, 1)
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_GenerateResource_normal(): Unit {
+        let res = __GenerateResource__(
+            "com.example.test",
+            "entry",
+            "entry",
+            12345,
+            "test_string",
+            [Int64(100), "param", Float64(3.14)],
+            0
+        )
+        @Expect(res.bundleName, "com.example.test")
+        @Expect(res.moduleName, "entry")
+        @Expect(res.id, 12345)
+        @Expect(res.params.size, 3)
+    }
 }
