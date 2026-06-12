@@ -69,6 +69,9 @@ class Test_resource_manager {
 
        @Expect(getResourceManager().getString(res2_1.id, ArgsValueType.Int32Value(20)), "int is 20")
        @Expect(getResourceManager().getStringByName("Test_Format3", ArgsValueType.StringValue("abcdefg")), "string is abcdefg")
+       
+       let res2_2 = @r(app.string.Test_Format2)
+       @Expect(getResourceManager().getString(res2_2.id, ArgsValueType.Float32Value(3.14)), "float is 3.14")
     }
 
     @TestCase
