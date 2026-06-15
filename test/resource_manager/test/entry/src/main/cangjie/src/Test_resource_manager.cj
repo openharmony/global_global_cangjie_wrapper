@@ -69,6 +69,9 @@ class Test_resource_manager {
 
        @Expect(getResourceManager().getString(res2_1.id, ArgsValueType.Int32Value(20)), "int is 20")
        @Expect(getResourceManager().getStringByName("Test_Format3", ArgsValueType.StringValue("abcdefg")), "string is abcdefg")
+       
+       let res2_3 = @r(app.string.Test_Format2)
+       @Expect(getResourceManager().getString(res2_3.id, ArgsValueType.Float32Value(3.14)), "float is 3.14")
     }
 
     @TestCase
@@ -94,6 +97,13 @@ class Test_resource_manager {
         let res = @r(app.media.startIcon)
         @Expect(getResourceManager().getMediaContent(res.id).size > 0, true)
         @Expect(getResourceManager().getMediaByName("startIcon").size > 0, true)
+        
+        @Expect(getResourceManager().getMediaContent(res.id, density: Some(ScreenDensity.ScreenSdpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContent(res.id, density: Some(ScreenDensity.ScreenMdpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContent(res.id, density: Some(ScreenDensity.ScreenLdpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContent(res.id, density: Some(ScreenDensity.ScreenXldpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContent(res.id, density: Some(ScreenDensity.ScreenXxldpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContent(res.id, density: Some(ScreenDensity.ScreenXxxldpi)).size > 0, true)
     }
 
     @TestCase
@@ -102,6 +112,13 @@ class Test_resource_manager {
         let res = @r(app.media.startIcon)
         @Expect(getResourceManager().getMediaContentBase64(res.id).size > 0, true)
         @Expect(getResourceManager().getMediaBase64ByName("startIcon").size > 0, true)
+        
+        @Expect(getResourceManager().getMediaContentBase64(res.id, density: Some(ScreenDensity.ScreenSdpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContentBase64(res.id, density: Some(ScreenDensity.ScreenMdpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContentBase64(res.id, density: Some(ScreenDensity.ScreenLdpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContentBase64(res.id, density: Some(ScreenDensity.ScreenXldpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContentBase64(res.id, density: Some(ScreenDensity.ScreenXxldpi)).size > 0, true)
+        @Expect(getResourceManager().getMediaContentBase64(res.id, density: Some(ScreenDensity.ScreenXxxldpi)).size > 0, true)
     }
 
     @TestCase
@@ -232,5 +249,64 @@ class Test_resource_manager {
         @Expect(config.locale, "zh_Hans_CN")
         @Expect(config.mcc, 0)
         @Expect(config.mnc, 0)
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_GenerateResource_HAR(): Unit {
+        let res = __GenerateResource__(
+            "com.example.test",
+            "har",
+            "entry",
+            12345,
+            "test_string",
+            [Int64(100), "param", Float64(3.14)],
+            0
+        )
+        @Expect(res.bundleName, "__harDefaultBundleName__")
+        @Expect(res.moduleName, "__harDefaultModuleName__")
+        @Expect(res.id, 0)
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_GenerateResource_RAWFILE(): Unit {
+        let res = __GenerateResource__(
+            "com.example.test",
+            "entry",
+            "entry",
+            12345,
+            "test.txt",
+            [],
+            30000
+        )
+        @Expect(res.bundleName, "com.example.test")
+        @Expect(res.moduleName, "entry")
+        @Expect(res.id, 12345)
+        match (res.params) {
+            case Some(arr) => @Expect(arr.size, 1)
+            case None => @Expect(false)
+        }
+    }
+
+    @TestCase
+    @Tag[APILevel22, TestLevel0]
+    func test_GenerateResource_normal(): Unit {
+        let res = __GenerateResource__(
+            "com.example.test",
+            "entry",
+            "entry",
+            12345,
+            "test_string",
+            [Int64(100), "param", Float64(3.14)],
+            0
+        )
+        @Expect(res.bundleName, "com.example.test")
+        @Expect(res.moduleName, "entry")
+        @Expect(res.id, 12345)
+         match (res.params) {
+            case Some(arr) => @Expect(arr.size, 3)
+            case None => @Expect(false)
+        }
     }
 }
