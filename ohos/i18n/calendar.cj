@@ -48,13 +48,9 @@ foreign {
 
     func FfiOHOSCalendarGetDisplayName(id: Int64, locale: CString): CString
 
-    func FfiOHOSCalendarIsWeekend(id: Int64, date: CDate): Bool
-
     func FfiOHOSCalendarAdd(id: Int64, field: CString, amount: Int32, code: CPointer<Int32>): Unit
 
     func FfiOHOSCalendarGetTimeInMillis(id: Int64): Float64
-
-    func FfiOHOSCalendarCompareDays(id: Int64, date: CDate): Int32
 }
 
 

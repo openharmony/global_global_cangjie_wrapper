@@ -171,30 +171,3 @@ public enum CalendarType {
         }
     }
 }
-
-@C
-struct CDate {
-    CDate(
-        let year: Int64,
-        let month: Int64,
-        let day: Int64,
-        let icuUdate: Float64,
-        let isNull: Bool
-    ) {}
-
-    init(date: DateTime) {
-        this.year = date.year
-        this.month = date.month.toInteger()
-        this.day = date.dayOfMonth
-        this.icuUdate = Float64(date.toUnixTimeStamp().toMilliseconds())
-        this.isNull = false
-    }
-
-    init() {
-        this.year = 0
-        this.month = 0
-        this.day = 0
-        this.icuUdate = 0.0
-        this.isNull = true
-    }
-}
