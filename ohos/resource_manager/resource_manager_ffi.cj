@@ -86,8 +86,6 @@ foreign {
 
     func CJ_RemoveResource(id: Int64, path: CString): Int32
 
-    func CJ_GetConfiguration(id: Int64, cfg: CPointer<RetConfiguration>): Int32
-
     func CJ_GetDeviceCapability(id: Int64, cfg: CPointer<RetDeviceCapability>): Int32
 
     func CJ_GetDrawableDescriptor(id: Int64, resId: UInt32, density: UInt32): RetDataI64
@@ -97,12 +95,6 @@ foreign {
     func CJ_GetDrawableDescriptorByName(id: Int64, resName: CString, density: UInt32): RetDataI64
 
     func CJ_GetLocales(id: Int64, includeSystem: Bool): RetDataCArrString
-
-    func CJ_GetSymbol(id: Int64, resId: UInt32): RetDataU32
-
-    func CJ_GetSymbolByResource(id: Int64, resource: CResource): RetDataU32
-
-    func CJ_GetSymbolByName(id: Int64, name: CString): RetDataU32
 
     func FfiResMgrGetConfiguration(id: Int64, cfg: CPointer<RetConfigurationEx>): Int32
 
@@ -123,14 +115,6 @@ struct RetDeviceCapability {
     func toDeviceCapability(): DeviceCapability {
         DeviceCapability(ScreenDensity.parse(screenDensity), DeviceType.parse(deviceType))
     }
-}
-
-@C
-struct RetConfiguration {
-    RetConfiguration(
-        let direction: Int32,
-        let locale: CString
-    ) {}
 }
 
 @C
@@ -177,12 +161,4 @@ struct RetGetNumber {
             NumberValueType.Float32Value(floatValue)
         }
     }
-}
-
-@C
-struct RetDataU32 {
-    RetDataU32(
-        let code: Int32,
-        let data: UInt32
-    ) {}
 }
