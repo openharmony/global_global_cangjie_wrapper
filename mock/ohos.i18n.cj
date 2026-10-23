@@ -25,6 +25,59 @@ public func getCalendar(locale: String, calendarType!: ?CalendarType = None): Ca
     return Calendar()
 }
 
+/**
+ * Checks whether a language is an RTL language. For an RTL language, UI mirroring is required.
+ *
+ * @param { String } locale - System locale, which consists of the language, script, and country/region.
+ * @returns { Bool } Whether a language is an RTL language. The value **true** indicates that the language is an
+ *     RTL language, and the value **false** indicates the opposite.
+ */
+@!APILevel[
+    since: "26.1.0",
+    syscap: "SystemCapability.Global.I18n"
+]
+public func isRTL(locale: String): Bool {
+    return false
+}
+
+/**
+ * Provides text transliteration capabilities, such as creating a transliterator and transliterating text.
+ */
+@!APILevel[
+    since: "26.1.0",
+    syscap: "SystemCapability.Global.I18n"
+]
+public class Transliterator {
+    /**
+     * Creates a **Transliterator** object based on the specified ID.
+     * If the specified ID is not supported, a **BusinessException** is thrown.
+     *
+     * @param { String } id - ID supported by the **Transliterator** object.
+     * @returns { Transliterator } **Transliterator** object.
+     */
+    @!APILevel[
+        since: "26.1.0",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public static func getInstance(id: String): Transliterator {
+        return Transliterator()
+    }
+
+    /**
+     * Converts the input text from the source format to the target format.
+     *
+     * @param { String } text - Input text.
+     * @returns { String } Text after conversion.
+     */
+    @!APILevel[
+        since: "26.1.0",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public func transform(text: String): String {
+        return String()
+    }
+}
+
 @!APILevel[
     since: "22",
     syscap: "SystemCapability.Global.I18n"
@@ -224,7 +277,35 @@ public class System {
     public static func getAppPreferredLanguage(): String {
         return String()
     }
-    
+
+    /**
+     * Obtains the current system language.
+     * To listen for system language changes, enable listening for Support.COMMON_EVENT_LOCALE_CHANGED.
+     *
+     * @returns { String } Language ID.
+     */
+    @!APILevel[
+        since: "26.1.0",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public static func getSystemLanguage(): String {
+        return String()
+    }
+
+    /**
+     * Obtains the current system country/region.
+     * To listen for system region changes, enable listening for Support.COMMON_EVENT_LOCALE_CHANGED.
+     *
+     * @returns { String } Country/region ID.
+     */
+    @!APILevel[
+        since: "26.1.0",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public static func getSystemRegion(): String {
+        return String()
+    }
+
     public init() {
         super()
     }

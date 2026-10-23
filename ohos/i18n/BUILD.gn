@@ -22,8 +22,10 @@ ohos_cangjie_shared_library("ohos.i18n") {
   } else {
     sources = [
       "calendar.cj",
+      "i18n_addon.cj",
       "i18n_common.cj",
       "system.cj",
+      "transliterator.cj",
     ]
   }
 
