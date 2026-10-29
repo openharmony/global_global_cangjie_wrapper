@@ -21,6 +21,10 @@ import ohos.labels.APILevel
 
 foreign {
     func FfiI18nSystemGetAppPreferredLanguage(): CString
+
+    func FfiI18nSystemGetSystemLanguage(): CString
+
+    func FfiI18nSystemGetSystemRegion(): CString
 }
 
 /**
@@ -49,6 +53,46 @@ public class System {
             return language
         } finally {
             unsafe { LibC.free(clanguage) }
+        }
+    }
+
+    /**
+     * Obtains the current system language.
+     * To listen for system language changes, enable listening for Support.COMMON_EVENT_LOCALE_CHANGED.
+     *
+     * @returns { String } Language ID.
+     */
+    @!APILevel[
+        since: "26.1.0",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public static func getSystemLanguage(): String {
+        let cStr = unsafe { FfiI18nSystemGetSystemLanguage() }
+        try {
+            let str = cStr.toString()
+            return str
+        } finally {
+            unsafe { LibC.free(cStr) }
+        }
+    }
+
+    /**
+     * Obtains the current system country/region.
+     * To listen for system region changes, enable listening for Support.COMMON_EVENT_LOCALE_CHANGED.
+     *
+     * @returns { String } Country/region ID.
+     */
+    @!APILevel[
+        since: "26.1.0",
+        syscap: "SystemCapability.Global.I18n"
+    ]
+    public static func getSystemRegion(): String {
+        let cStr = unsafe { FfiI18nSystemGetSystemRegion() }
+        try {
+            let str = cStr.toString()
+            return str
+        } finally {
+            unsafe { LibC.free(cStr) }
         }
     }
 }
